@@ -1,0 +1,10 @@
+{
+  "name": "htmllinter-basic-standard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": []
+}
