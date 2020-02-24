@@ -1,0 +1,21 @@
+.nyc_output
+coverage
+dist
+lerna-debug.log
+node_modules
+npm-debug.log
+yarn-error.log
+_webpackOutput
+
+# Generated metadata (only the root one is generated!)
+
+/metadata.toml
+
+
+# Phenomic things
+
+*.bundle.js
+
+# Cache
+
+.eslintcache
