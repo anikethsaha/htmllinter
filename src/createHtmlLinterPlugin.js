@@ -1,6 +1,8 @@
 const createhtmlLintPlugin = (tree, { ruleName, rule }) => {
   const reporter = [];
-  const plugin = rule({}, reporter)(tree);
+  const reportNode = []; // T.O.D.O : not ready yet
+
+  const plugin = rule({}, reporter, reportNode)(tree);
   tree.messages
     .filter((msg) => msg.htmlLinter !== undefined)
     .map((msg) => {
@@ -10,6 +12,12 @@ const createhtmlLintPlugin = (tree, { ruleName, rule }) => {
         ...msg.htmlLinter,
         ...msgToPush,
       };
+
+      /**
+       * TODO
+       * handle `reportNode`
+       */
+
       return msg;
     });
 
