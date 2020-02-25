@@ -1,13 +1,9 @@
 {
   "name": "htmllinter",
   "version": "0.1.0",
-  "private": true,
   "description": "html linter based on posthtml",
   "main": "dist/index.js",
   "scripts": {
-    "lint": "eslint . --cache --ignore-path .gitignore",
-    "fixlint": "yarn lint -- --fix",
-    "build": "babel src --config-file ./babel.config.js --out-dir dist --ignore \"**/__tests__/**\"",
     "test:only": "jest"
   },
   "keywords": [],
@@ -27,14 +23,7 @@
     "@babel/preset-env": "^7.8.4",
     "babel-eslint": "^10.0.3",
     "cross-env": "^7.0.0",
-    "del-cli": "^3.0.0",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.3",
-    "jest": "^25.1.0",
-    "lerna": "^3.20.2",
-    "prettier": "^1.19.1"
+    "del-cli": "^3.0.0"
   },
   "dependencies": {
     "posthtml": "^0.12.0"
