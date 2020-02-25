@@ -1,4 +1,4 @@
-module.exports = (plugins, configRules) => {
+export default (plugins, configRules) => {
   let pluginsToRet = [];
   plugins.map((plugin) => {
     Object.keys(plugin)

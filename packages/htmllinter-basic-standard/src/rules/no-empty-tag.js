@@ -1,6 +1,6 @@
 /* eslint-disable no-prototype-builtins */
 
-module.exports = {
+export default {
   ruleName: 'no-empty-tag',
   // eslint-disable-next-line no-unused-vars
   rule: function(options = {}, reporter = [], reportNode = []) {

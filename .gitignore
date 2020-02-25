@@ -20,3 +20,10 @@ _webpackOutput
 # Cache
 
 .eslintcache
+
+
+# local tests
+
+input.html
+test.cli.js
+htmllinter.config.js

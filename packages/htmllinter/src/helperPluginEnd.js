@@ -1,4 +1,4 @@
-const helperPlugin = (tree) => {
+export default (tree) => {
   let lintingMsgs;
   tree.messages
     .filter((msg) => msg.htmlLinter !== undefined)
@@ -11,5 +11,3 @@ const helperPlugin = (tree) => {
     });
   });
 };
-
-module.exports = helperPlugin;

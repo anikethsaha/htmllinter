@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   ruleName: 'no-duplicate-id',
   // eslint-disable-next-line no-unused-vars
   rule: function(options = {}, reporter = [], reportNode = []) {

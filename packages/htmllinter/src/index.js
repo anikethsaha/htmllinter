@@ -1,11 +1,11 @@
-const posthtml = require('posthtml');
-const createHTMLLintPlugin = require('./createHtmlLinterPlugin');
-const helperPluginEnd = require('./helperPluginEnd');
-const helperPluginStart = require('./helperPluginStart');
-const resolveExtends = require('./resolveExtends');
-const resolveExternalPlugins = require('./resolveExternalPlugins');
+import posthtml from 'posthtml';
+import createHTMLLintPlugin from './createHtmlLinterPlugin';
+import helperPluginEnd from './helperPluginEnd';
+import helperPluginStart from './helperPluginStart';
+import resolveExtends from './resolveExtends';
+import resolveExternalPlugins from './resolveExternalPlugins';
 
-const posthtmlRunner = (html, config = {}) => {
+const run = (html, config = {}) => {
   const plugins = [helperPluginStart];
   if (config.extend) {
     if (
@@ -41,7 +41,7 @@ const posthtmlRunner = (html, config = {}) => {
   return posthtml(plugins).process(html);
 };
 
-module.exports = {
-  run: posthtmlRunner,
+export default {
+  run,
   createHTMLLintPlugin,
 };

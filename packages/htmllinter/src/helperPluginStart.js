@@ -1,7 +1,5 @@
-const helperPlugin = (tree) => {
+export default (tree) => {
   tree.messages.push({
     htmlLinter: {},
   });
 };
-
-module.exports = helperPlugin;

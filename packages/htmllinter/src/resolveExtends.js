@@ -1,4 +1,4 @@
-module.exports = (extend, rules) => {
+export default (extend, rules) => {
   if (!rules || rules.length === 0) {
     // no rules needs to be turn off or
     // no options is needs to be passed
