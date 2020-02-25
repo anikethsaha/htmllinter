@@ -2,11 +2,23 @@
   "name": "htmllinter-basic-standard",
   "version": "0.1.0",
   "description": "basic standard for htmllinter used for extending the config",
-  "main": "src/index.js",
-  "scripts": {},
+  "main": "dist/index.js",
+  "bin": {
+    "htmllinter": "bin/htmllinter.js"
+  },
+  "scripts": {
+    "prebuild": "del-cli dist",
+    "build": "rollup -c rollup.config.js"
+  },
   "dependencies": {
     "htmllinter": "*"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "cross-env": "^7.0.0",
+    "del-cli": "^3.0.0",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^5.2.0"
+  },
   "keywords": []
 }
