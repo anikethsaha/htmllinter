@@ -33,11 +33,12 @@ const runCli = () => {
         (filename) =>
           extname(filename) === '.html' || extname(filename) === '.HTML'
       )
-      .map((ipFileName) => {
+      .map(async (ipFileName) => {
         info(` Checking ${ipFileName} \n`);
 
         const html = readFileSync(join(process.cwd(), ipFileName), 'utf8');
-        run(html, config);
+        const lintData = await run(html, config);
+        console.log('lintData', lintData);
       });
   });
 };

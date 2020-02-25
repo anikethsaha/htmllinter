@@ -1,6 +1,5 @@
 import posthtml from 'posthtml';
 import createHTMLLintPlugin from './createHtmlLinterPlugin';
-import helperPluginEnd from './helperPluginEnd';
 import helperPluginStart from './helperPluginStart';
 import resolveExtends from './resolveExtends';
 import resolveExternalPlugins from './resolveExternalPlugins';
@@ -37,8 +36,27 @@ export const run = (html, config = {}) => {
     plugins.push(...pluginsFromConfig);
   }
 
-  plugins.push(helperPluginEnd);
-  return posthtml(plugins).process(html);
+  let lintingData = [];
+
+  return posthtml(plugins)
+    .process(html)
+    .then((result) => {
+      let lintingMsgs;
+
+      result.messages
+        .filter((msg) => msg.htmlLinter !== undefined)
+        .map((msg) => {
+          lintingMsgs = msg.htmlLinter;
+        });
+
+      Object.keys(lintingMsgs).forEach((ruleName) => {
+        lintingMsgs[ruleName].map((msg) => {
+          lintingData.push({ msg, ruleName });
+        });
+      });
+
+      return lintingData;
+    });
 };
 
 export { createHTMLLintPlugin };
