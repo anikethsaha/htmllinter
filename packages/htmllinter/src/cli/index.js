@@ -1,7 +1,7 @@
 import { join, extname } from 'path';
 import { readFileSync } from 'fs';
-import glob from ' glob';
-import { run } from 'htmllinter';
+import glob from 'glob';
+import { run } from '../index';
 import { error, info } from './logger';
 
 import { getConfig } from './utils';
@@ -23,7 +23,7 @@ const runCli = () => {
       error(err, true, true);
     }
     if (matches.length < 1) {
-      error('no file found with input pattern : ${input}', false, true);
+      error(`no file found with input pattern : ${input}`, false, true);
       process.exit(0);
     }
 
@@ -36,7 +36,7 @@ const runCli = () => {
       .map((ipFileName) => {
         info(` Checking ${ipFileName} \n`);
 
-        const html = readFileSync(join(__dirname, ipFileName), 'utf8');
+        const html = readFileSync(join(process.cwd(), ipFileName), 'utf8');
         run(html, config);
       });
   });

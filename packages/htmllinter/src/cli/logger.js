@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import { help } from './utils';
 
 export const error = (msg, exit = true, showHelp = true) => {
-  process.stdout.write(`${chalk.bgRed('[HTMLLINTER] : ')} ${chalk.red(msg)}`);
+  process.stdout.write(`${chalk.bgRed('[HTMLLINTER]:')} ${chalk.red(msg)}`);
   if (showHelp) {
     process.stderr.write(help);
   }
@@ -13,7 +13,7 @@ export const error = (msg, exit = true, showHelp = true) => {
 
 export const info = (msg) => {
   process.stdout.write(
-    `${chalk.bgYellow('[HTMLLINTER] : ')} ${chalk.blue(msg)}`
+    `${chalk.bgGreen.white.bold('[HTMLLINTER] :')}${chalk.magenta(msg)}`
   );
 };
 
