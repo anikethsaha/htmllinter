@@ -1,4 +1,4 @@
-const creatHTMLLintPlugin = require('../../src/createHtmlLinterPlugin');
+const { creatHTMLLintPlugin } = require('htmllinter');
 const noEmptyTag = require('./rules/no-empty-tag');
 const noBoolTrueExplicitDefin = require('./rule/no-bool-true-explicit-define');
 

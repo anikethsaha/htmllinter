@@ -1,5 +1,5 @@
 const posthtml = require('posthtml');
-// const createHTMLLintPlugin = require('./createHtmlLinterPlugin');
+const createHTMLLintPlugin = require('./createHtmlLinterPlugin');
 const helperPluginEnd = require('./helperPluginEnd');
 const helperPluginStart = require('./helperPluginStart');
 const resolveExtends = require('./resolveExtends');
@@ -43,4 +43,5 @@ const posthtmlRunner = (html, config = {}) => {
 
 module.exports = {
   run: posthtmlRunner,
+  createHTMLLintPlugin,
 };

@@ -1,10 +1,12 @@
 {
   "name": "htmllinter-basic-standard",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.1.0",
+  "description": "basic standard for htmllinter used for extending the config",
   "main": "src/index.js",
   "scripts": {},
-  "dependencies": {},
+  "dependencies": {
+    "htmllinter": "*"
+  },
   "devDependencies": {},
   "keywords": []
 }
