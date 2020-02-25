@@ -5,7 +5,7 @@ import helperPluginStart from './helperPluginStart';
 import resolveExtends from './resolveExtends';
 import resolveExternalPlugins from './resolveExternalPlugins';
 
-const run = (html, config = {}) => {
+export const run = (html, config = {}) => {
   const plugins = [helperPluginStart];
   if (config.extend) {
     if (
@@ -41,7 +41,4 @@ const run = (html, config = {}) => {
   return posthtml(plugins).process(html);
 };
 
-export default {
-  run,
-  createHTMLLintPlugin,
-};
+export { createHTMLLintPlugin };

@@ -27,3 +27,4 @@ _webpackOutput
 input.html
 test.cli.js
 htmllinter.config.js
+*.html

@@ -34,6 +34,8 @@
     "rollup-plugin-terser": "^5.2.0"
   },
   "dependencies": {
+    "chalk": "^3.0.0",
+    "glob": "^7.1.6",
     "posthtml": "^0.12.0"
   }
 }
