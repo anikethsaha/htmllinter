@@ -1,6 +1,18 @@
 const creatHTMLLintPlugin = require('../../src/createHtmlLinterPlugin');
-const { rule, ruleName } = require('./rules/no-empty-tag');
+const noEmptyTag = require('./rules/no-empty-tag');
+const noBoolTrueExplicitDefin = require('./rule/no-bool-true-explicit-define');
 
-module.exports = {
-  [ruleName]: (html) => creatHTMLLintPlugin(html, { rule, ruleName }),
+const noDupId = require('./rules/no-duplicate-id');
+
+exports.plugins = {
+  [noEmptyTag.ruleName]: (html) => creatHTMLLintPlugin(html, noEmptyTag),
+  [noDupId.ruleName]: (html) => creatHTMLLintPlugin(html, noDupId),
+  [noBoolTrueExplicitDefin.ruleName]: (html) =>
+    creatHTMLLintPlugin(html, noBoolTrueExplicitDefin),
+};
+
+exports.rules = {
+  'no-empty-tag': 'on',
+  'no-duplicate-id': 'on',
+  'no-bool-true-explicit-define': 'on',
 };

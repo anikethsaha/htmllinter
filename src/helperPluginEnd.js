@@ -7,7 +7,7 @@ const helperPlugin = (tree) => {
     });
   Object.keys(lintingMsgs).forEach((ruleName) => {
     lintingMsgs[ruleName].map((msg) => {
-      console.log(`[HTMLLINTER] ${msg} \t | ${ruleName}`);
+      console.log(`[HTMLLINTER] ${msg} \t | ${ruleName} \n`);
     });
   });
 };
