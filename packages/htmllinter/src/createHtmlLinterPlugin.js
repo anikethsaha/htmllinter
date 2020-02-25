@@ -1,4 +1,4 @@
-const createhtmlLintPlugin = (tree, { ruleName, rule }) => {
+export default (tree, { ruleName, rule }) => {
   const reporter = [];
   const reportNode = []; // T.O.D.O : not ready yet
 
@@ -23,5 +23,3 @@ const createhtmlLintPlugin = (tree, { ruleName, rule }) => {
 
   return plugin;
 };
-
-module.exports = createhtmlLintPlugin;

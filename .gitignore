@@ -1,6 +1,7 @@
 .nyc_output
 coverage
 dist
+bin
 lerna-debug.log
 node_modules
 npm-debug.log
@@ -19,3 +20,10 @@ _webpackOutput
 # Cache
 
 .eslintcache
+
+
+# local tests
+
+input.html
+test.cli.js
+htmllinter.config.js
