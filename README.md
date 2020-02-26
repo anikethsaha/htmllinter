@@ -79,6 +79,10 @@ Example
 
 ```
 
+## Node API
+
+**[REFER THIS](https://github.com/anikethsaha/htmllinter/blob/master/docs/api.md)**
+
 ## Config File
 
 `htmllinter` can be configured through config file name `htmllinter.config.js`.  
