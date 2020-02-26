@@ -1,8 +1,11 @@
 {
   "name": "htmllinter",
   "version": "0.1.0",
-  "description": "html linter based on posthtml",
+  "description": "html linter based on posthtml. shareable and plug-able linter made on top of posthtml",
   "main": "dist/index.js",
+  "bin": {
+    "htmllinter": "bin/htmllinter.js"
+  },
   "scripts": {
     "prebuild": "del-cli dist bin",
     "watch": "npm run build -- -w",
@@ -10,11 +13,18 @@
     "prepublish": "npm run build",
     "test:only": "jest"
   },
-  "keywords": [],
+  "keywords": [
+    "html",
+    "lint",
+    "linter",
+    "posthtml",
+    "plugins",
+    "htmllinter"
+  ],
   "files": [
     "dist"
   ],
-  "repository": "anikethsaha/package-starter",
+  "repository": "anikethsaha/htmllinter",
   "author": {
     "name": "anikethsaha",
     "email": "anik220798@gmail.com"

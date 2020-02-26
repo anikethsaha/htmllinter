@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "basic standard for htmllinter used for extending the config",
   "main": "dist/index.js",
-  "bin": {
-    "htmllinter": "bin/htmllinter.js"
-  },
   "scripts": {
     "prebuild": "del-cli dist",
     "build": "rollup -c rollup.config.js"
@@ -23,5 +20,11 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.2.0"
   },
-  "keywords": []
+  "keywords": [
+    "linter",
+    "standard",
+    "config",
+    "htmllinter",
+    "lint"
+  ]
 }

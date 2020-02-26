@@ -3,20 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "description": "html linter based on posthtml",
-  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint . --cache --ignore-path .gitignore",
     "fixlint": "yarn lint -- --fix",
     "build": "lerna run build",
     "postinstall": "lerna bootstrap",
-    "demo": "node packages/htmllinter/bin/htmllinter.js  *.html",
     "test:only": "jest"
   },
-  "keywords": [],
-  "files": [
-    "dist"
-  ],
-  "repository": "anikethsaha/package-starter",
+  "repository": "anikethsaha/htmllinter",
   "author": {
     "name": "anikethsaha",
     "email": "anik220798@gmail.com"
