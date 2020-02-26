@@ -1,5 +1,5 @@
 {
-  "name": "htmllinter",
+  "name": "htmllinter-repo",
   "version": "0.1.0",
   "private": true,
   "description": "html linter based on posthtml",
@@ -8,7 +8,8 @@
     "fixlint": "yarn lint -- --fix",
     "build": "lerna run build",
     "postinstall": "lerna bootstrap",
-    "test:only": "jest"
+    "test:only": "jest",
+    "linkDep": "lerna link"
   },
   "repository": "anikethsaha/htmllinter",
   "author": {

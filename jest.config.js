@@ -5,5 +5,6 @@ module.exports = {
     '/helper/',
     '/testplugins/',
   ],
+  modulePathIgnorePatterns: ['<rootDir>/package.json'],
   testMatch: ['**/*.test.js'],
 };

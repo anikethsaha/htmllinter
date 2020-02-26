@@ -2,11 +2,12 @@ export default (extend, rules) => {
   if (!rules || rules.length === 0) {
     // no rules needs to be turn off or
     // no options is needs to be passed
-
     let plugins = [];
+
     Object.keys(extend.plugins).map((ruleName) =>
-      plugins.push(extend[ruleName])
+      plugins.push(extend.plugins[ruleName])
     );
+
     return plugins;
   } else {
     let plugins = [];
