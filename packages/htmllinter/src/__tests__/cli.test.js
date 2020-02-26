@@ -1,8 +1,9 @@
-import { resolve } from 'path';
+import { join } from 'path';
 import execa from 'execa';
 
 const { sync: spSync } = execa;
-const cliPath = resolve(__dirname, '../../bin/htmllinter.js');
+
+const cliPath = join(process.cwd(), '/packages/htmllinter/bin/htmllinter.js');
 
 describe('Testing CLI behavior', () => {
   describe('input pattern', () => {
