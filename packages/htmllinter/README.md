@@ -1,5 +1,5 @@
 # htmllinter
-A html linter based on posthtml.  shareable and plug-able linter made on top of posthtml
+html linter based on posthtml.  shareable and plug-able linter made on top of posthtml
 
 ## Installation 
 
@@ -78,6 +78,10 @@ Example
     $ htmllinter **/*
 
 ```
+
+## Node API
+
+**[REFER THIS](https://github.com/anikethsaha/htmllinter/blob/master/docs/api.md)**
 
 ## Config File
 
