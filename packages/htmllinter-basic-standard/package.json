@@ -8,7 +8,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "htmllinter": "*"
+    "htmllinter": "^0.1.0"
   },
   "files": [
     "dist"
