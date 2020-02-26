@@ -3,7 +3,7 @@ import execa from 'execa';
 
 const { sync: spSync } = execa;
 
-const cliPath = join(process.cwd(), '/packages/htmllinter/bin/htmllinter.js');
+const cliPath = join(__dirname, '../../bin/htmllinter.js');
 
 describe('Testing CLI behavior', () => {
   describe('input pattern', () => {
