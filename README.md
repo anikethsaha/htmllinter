@@ -12,14 +12,13 @@ $ npm install htmllinter htmllinter-basic-standard --save-dev
 - `htmllinter` is the linter which comes with its own CLI to run with. It supports pretty error display in table format. It has node API which can be use to 
    linter node programs.
  
-- `htmllinter-basic-standard`: it is the rule package, which consist of basic rules that can be configured through [htmllinter's config file](#config_file).
-                               [Click here]() to see the rules it comes with.
+- `htmllinter-basic-standard`: it is the rule package, which consist of basic rules that can be configured through [htmllinter's config file](#config_file). [CLICK HERE](https://github.com/anikethsaha/htmllinter/blob/master/packages/htmllinter-basic-standard/README.md) to see the rules it comes with.
 
 
 ## Usage
-`htmllinter` can be configured through a config file name `htmllinter.config.js` . Create this file in your project and follow [this guide]() to
- configure this file.
-And then you can lint your html files using the following commands
+`htmllinter` can be configured through a config file name `htmllinter.config.js` . Create this file in your project and follow [this guide](#config-file) to configure this file.
+
+And now you are ready to lint your html files using the following commands
 
 ```shell
 $ htmllinter input.html 
@@ -138,7 +137,7 @@ module.exports = {
 }
 ```
 
-**Learn more about creating a plugins [`here`]()**
+**Learn more about creating a plugins [`here`](https://github.com/anikethsaha/htmllinter/blob/master/docs/how-to-create-plugin.md)**
 
 **learn more about rules [`here`](#rules)**
 
@@ -180,14 +179,14 @@ List of rules comes with [`htmllinter-basic-standard`]()
 - `rule` : `function`, it is a function which takes three parameters (`options, reporter, repoterNode`) and returns a function which gets two parameters (`tree`,`result`)
    
 
-**[CLICK HERE to read in details how to create a rule]()**
+**[CLICK HERE to read in details how to create a rule](https://github.com/anikethsaha/htmllinter/blob/master/docs/how-to-create-rule.md)**
 
 ## Creating your own `standards`
 
 A `standard` is nothing by a module exporting two object, one is `plugins` which itself is an object with `key` as the rule name and function which accepts a parameter `html` return rule wrapped in `htmllinter.createHTMLLintPlugin`
 and other exporting object is `rules` with the rules coming from these `plugins`/`rules`
 
-**[CLICK HERE to read in details how to create a standard]()**
+**[CLICK HERE to read in details how to create a standard](https://github.com/anikethsaha/htmllinter/blob/master/docs/how-to-standard.md)**
 
 
 
