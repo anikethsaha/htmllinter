@@ -1,4 +1,4 @@
-import { join, resolve } from 'path';
+import { resolve } from 'path';
 import execa from 'execa';
 
 const { sync: spSync } = execa;
