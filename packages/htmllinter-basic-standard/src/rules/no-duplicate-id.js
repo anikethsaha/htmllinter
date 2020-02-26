@@ -14,7 +14,7 @@ export default {
           return node;
         }
         if (idCheck[id]) {
-          reporter.push(`[HTMLINTER] duplicate ids ${id} @ ${node.tag}`);
+          reporter.push(`duplicate ids ${id} @ ${node.tag}`);
           return node;
         }
 
