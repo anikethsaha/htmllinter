@@ -2,9 +2,9 @@ import chalk from 'chalk';
 import { help } from './utils';
 
 export const error = (msg, exit = true, showHelp = true) => {
-  process.stdout.write(`${chalk.bgRed('[HTMLLINTER]:')} ${chalk.red(msg)}`);
+  process.stderr.write(`${chalk.bgRed('[HTMLLINTER]:')} ${chalk.red(msg)}`);
   if (showHelp) {
-    process.stderr.write(help);
+    process.stdout.write(help);
   }
   if (exit) {
     process.exit(0);
