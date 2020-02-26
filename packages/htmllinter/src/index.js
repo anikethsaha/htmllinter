@@ -51,7 +51,7 @@ export const run = (html, config = {}) => {
 
       Object.keys(lintingMsgs).forEach((ruleName) => {
         lintingMsgs[ruleName].map((msg) => {
-          lintingData.push({ msg, ruleName });
+          lintingData.push({ msg, ruleName }); // using array as it will be easy to create table
         });
       });
 

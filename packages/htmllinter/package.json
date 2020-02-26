@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "del-cli dist bin",
+    "watch": "npm run build -- -w",
     "build": "rollup -c rollup.config.js",
     "prepublish": "npm run build",
     "test:only": "jest"
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "chalk": "^3.0.0",
+    "cli-table3": "^0.5.1",
     "glob": "^7.1.6",
     "posthtml": "^0.12.0"
   }
