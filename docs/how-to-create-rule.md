@@ -1,4 +1,4 @@
-# How to create a rule 
+# How to create a `rule`
 
 In, `htmllinter` rules are nothing but simple object having a `ruleName` property and a `rule` property which is the defination of the rule
 that is written as `posthtml` plugin, which are then wrapped with `htmllinter.createHTMLLintPlugin` method which passes some
