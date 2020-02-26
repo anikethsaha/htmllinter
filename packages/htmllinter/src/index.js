@@ -4,7 +4,7 @@ import helperPluginStart from './helperPluginStart';
 import resolveExtends from './resolveExtends';
 import resolveExternalPlugins from './resolveExternalPlugins';
 
-export const run = (html, config = {}) => {
+export const run = (html = '', config = {}) => {
   const plugins = [helperPluginStart];
   if (config.extend) {
     if (

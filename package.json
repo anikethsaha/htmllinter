@@ -9,7 +9,9 @@
     "build": "lerna run build",
     "postinstall": "lerna bootstrap",
     "test:only": "jest",
-    "linkDep": "lerna link"
+    "linkDep": "lerna link",
+    "publish": "lerna publish",
+    "prepublish": "npm run build"
   },
   "repository": "anikethsaha/htmllinter",
   "author": {
