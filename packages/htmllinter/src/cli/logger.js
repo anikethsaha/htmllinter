@@ -19,6 +19,6 @@ export const info = (msg) => {
 
 export const success = (msg) => {
   process.stdout.write(
-    `${chalk.bgWhite.bold('[HTMLLINTER] : ')} ${chalk.green(msg)}`
+    `${chalk.bgRgb(0, 128, 0).bold('[HTMLLINTER] :')} ${chalk.green(msg)}`
   );
 };
