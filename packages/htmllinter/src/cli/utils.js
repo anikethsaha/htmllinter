@@ -6,6 +6,7 @@ export const getDefaultConfigFilePath = () => {
 };
 
 export const getUserDefineConfigFilePath = (argv) => {
+  let configFilePath = null;
   argv.forEach((arg, i) => {
     if (arg === '-c' || arg === '--config') {
       /**
@@ -16,10 +17,17 @@ export const getUserDefineConfigFilePath = (argv) => {
        * 2. join(process.cwd(), arg[i+1],'htmllinter.config.js')
        *
        */
-      const pathToConfig = arg[i + 1];
-      return join(process.cwd(), pathToConfig, 'htmllinter.config.js');
+      const pathToConfig = argv[i + 1];
+
+      configFilePath = join(
+        process.cwd(),
+        pathToConfig,
+        'htmllinter.config.js'
+      );
     }
   });
+
+  return configFilePath === null ? undefined : configFilePath;
 };
 
 export const getConfig = (args) => {
@@ -35,7 +43,7 @@ export const getConfig = (args) => {
    *
    */
 
-  if (args < 2) {
+  if (args.length < 2) {
     configFilePath = getDefaultConfigFilePath();
   } else {
     configFilePath =

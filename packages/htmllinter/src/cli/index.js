@@ -25,7 +25,6 @@ const runCli = async (cb) => {
   }
 
   const input = args[0];
-
   await glob(input, (err, matches) => {
     if (err) {
       error(err, true, true);
@@ -36,6 +35,7 @@ const runCli = async (cb) => {
     }
 
     const config = getConfig(args);
+
     /**
      * Getting the filtered correct matches as we need the length in order to make the
      * linting async with cb as it is required to throw exit(1) if there is any error found
