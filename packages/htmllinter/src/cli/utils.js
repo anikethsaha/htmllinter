@@ -55,8 +55,12 @@ export const getConfig = (args) => {
   try {
     config = require(configFilePath);
   } catch (error) {
-    process.stderr.write(chalk.redBright(error));
-    process.exit(1);
+    process.stderr.write(
+      `${chalk.yellow(
+        error
+      )}\n [HTMLLINTER] loading default config which is '{ }'`
+    );
+    return {};
   }
 
   return config;
