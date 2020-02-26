@@ -24,8 +24,8 @@ _webpackOutput
 
 # local tests
 
-input2.html
-input.html
+./input2.html
+./input.html
 test.cli.js
 ./htmllinter.config.js
 
