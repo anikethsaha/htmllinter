@@ -3,7 +3,13 @@ export default (plugins, configRules) => {
   plugins.map((plugin) => {
     Object.keys(plugin)
       .filter((pluginRule) => {
-        if (!configRules[pluginRule]) {
+        if (!configRules) {
+          console.warn(
+            `[HTMLINTER] cant find rule declaration at the "config.rules" in config file. SKIPPING THE PLUGINS \n`
+          );
+          return false;
+        }
+        if (configRules && !configRules[pluginRule]) {
           console.warn(
             `[HTMLINTER] cant find rule declaration for '${pluginRule}' at the "config.rules" in config file. SKIPPING THE PLUGIN \n`
           );

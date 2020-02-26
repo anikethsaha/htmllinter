@@ -74,4 +74,31 @@ describe('running the htmllinter.run api with config', () => {
       expect(result.length).toBe(0);
     });
   });
+  describe('plugins', () => {
+    it('should not return any linting error even though the input has it cause no rules is passed for the plugin', async () => {
+      const config = {
+        plugins: [require('./utils/examplePlugin')],
+      };
+      const result = await run(html, config);
+      expect(typeof result).toBe('object');
+      expect(result.length).toBe(0);
+    });
+    it('should return linting errors [no-bool-true-explicit-define]', async () => {
+      const input = `<a enable="true"></a>`;
+      const config = {
+        plugins: [require('./utils/examplePlugin')],
+        rules: {
+          'no-bool-true-explicit-define': 'on',
+        },
+      };
+      const result = await run(input, config);
+      expect(typeof result).toBe('object');
+      expect(result.length).toBe(1);
+      let ruleNames = [];
+      result.map((res) => {
+        ruleNames.push(res.ruleName);
+      });
+      expect(ruleNames.sort()).toEqual(['no-bool-true-explicit-define']);
+    });
+  });
 });
