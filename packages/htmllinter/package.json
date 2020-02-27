@@ -1,5 +1,5 @@
 {
-  "name": "htmllinter",
+  "name": "@htmllinter/core",
   "version": "0.1.0",
   "description": "html linter based on posthtml. shareable and plug-able linter made on top of posthtml",
   "main": "dist/index.js",

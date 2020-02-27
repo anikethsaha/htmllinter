@@ -1,110 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Testing CLI behavior Config flag should show message when correct path to config is passed but not present: Output for loading default config { } 1`] = `
-"[HTMLLINTER] : Checking ./fixtures/extendConfig/input.html 
-[HTMLLINTER] : Checking ./fixtures/extendConfig/noError.html 
+"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking ./fixtures/extendConfig/input.html [39m
+[35m[39m[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking ./fixtures/extendConfig/noError.html [39m
+[35m[39m
 
-
-[HTMLLINTER] : 0 errors found for file ./fixtures/extendConfig/input.html
-
- Output for filename : ./fixtures/extendConfig/input.html 
-
+[48;2;0;128;0m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file ./fixtures/extendConfig/input.html[39m
+[32m[39m
+ [33mOutput for filename : ./fixtures/extendConfig/input.html [39m
+[33m[39m
 [90m┌─────────[39m[90m┬───────────┐[39m
 [90m│[39m[31m Message [39m[90m│[39m[31m Rule Name [39m[90m│[39m
 [90m└─────────[39m[90m┴───────────┘[39m
 
 
-[HTMLLINTER] : 0 errors found for file ./fixtures/extendConfig/noError.html
-
- Output for filename : ./fixtures/extendConfig/noError.html 
-
+[48;2;0;128;0m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file ./fixtures/extendConfig/noError.html[39m
+[32m[39m
+ [33mOutput for filename : ./fixtures/extendConfig/noError.html [39m
+[33m[39m
 [90m┌─────────[39m[90m┬───────────┐[39m
 [90m│[39m[31m Message [39m[90m│[39m[31m Rule Name [39m[90m│[39m
 [90m└─────────[39m[90m┴───────────┘[39m"
 `;
 
 exports[`Testing CLI behavior Config flag should show message when htmllinter.config.js is passed along with the path even if correct: Output for loading default config { } 1`] = `
-"[HTMLLINTER] : Checking input.html 
-[HTMLLINTER] : Checking noError.html 
+"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking input.html [39m
+[35m[39m[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking noError.html [39m
+[35m[39m
 
-
-[HTMLLINTER] : 0 errors found for file input.html
-
- Output for filename : input.html 
-
+[48;2;0;128;0m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file input.html[39m
+[32m[39m
+ [33mOutput for filename : input.html [39m
+[33m[39m
 [90m┌─────────[39m[90m┬───────────┐[39m
 [90m│[39m[31m Message [39m[90m│[39m[31m Rule Name [39m[90m│[39m
 [90m└─────────[39m[90m┴───────────┘[39m
 
 
-[HTMLLINTER] : 0 errors found for file noError.html
-
- Output for filename : noError.html 
-
+[48;2;0;128;0m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file noError.html[39m
+[32m[39m
+ [33mOutput for filename : noError.html [39m
+[33m[39m
 [90m┌─────────[39m[90m┬───────────┐[39m
 [90m│[39m[31m Message [39m[90m│[39m[31m Rule Name [39m[90m│[39m
 [90m└─────────[39m[90m┴───────────┘[39m"
 `;
 
 exports[`Testing CLI behavior default config : fixture : defaultConfig should not throw error, load default config (htmllinter.config.js is present) when no config arg is passed   : no-error: default config no error 1`] = `
-"
-Usage :
-
-$ htmllinter <input> [-c|--config]
-
-input           - it is the input(html) file name, it accepts glob pattern.
-                example :
-                  - \\"input.html\\"
-                  - \\"input\\"
-                  - \\"/*.html\\"
-                  - \\".\\"
-
-Options
-  -c, --config    - path to htmllinter.config.js.
-                    default is \\".\\"
-                    example :
-                    - '.'
-                    - './dir/'
-
-Example
-
-    $ htmllinter input.html
-    $ htmllinter input -c ../
-    $ htmllinter **/*"
+"[93m[39m
+[93mUsage :[39m
+[93m[39m
+[93m$ htmllinter <input> [-c|--config][39m
+[93m[39m
+[93minput           - it is the input(html) file name, it accepts glob pattern.[39m
+[93m                example :[39m
+[93m                  - \\"input.html\\"[39m
+[93m                  - \\"input\\"[39m
+[93m                  - \\"/*.html\\"[39m
+[93m                  - \\".\\"[39m
+[93m[39m
+[93mOptions[39m
+[93m  -c, --config    - path to htmllinter.config.js.[39m
+[93m                    default is \\".\\"[39m
+[93m                    example :[39m
+[93m                    - '.'[39m
+[93m                    - './dir/'[39m
+[93m[39m
+[93mExample[39m
+[93m[39m
+[93m    $ htmllinter input.html[39m
+[93m    $ htmllinter input -c ../[39m
+[93m    $ htmllinter **/*[39m
+[93m[39m"
 `;
 
 exports[`Testing CLI behavior default config : fixture : defaultConfig should not throw error, load default config (htmllinter.config.js is present) when no config arg is passed: default config 1`] = `
-"[HTMLLINTER] : Checking input.html 
-
- Output for filename : input.html 
-
-[90m┌──────────────────────────────────────────[39m[90m┬─────────────────┐[39m
-[90m│[39m[31m Message                                  [39m[90m│[39m[31m Rule Name       [39m[90m│[39m
-[90m├──────────────────────────────────────────[39m[90m┼─────────────────┤[39m
-[90m│[39m the tag < h3 > has no content.           [90m│[39m no-empty-tag    [90m│[39m
-[90m├──────────────────────────────────────────[39m[90m┼─────────────────┤[39m
-[90m│[39m [HTMLINTER] duplicate ids asd adsasd @ a [90m│[39m no-duplicate-id [90m│[39m
-[90m└──────────────────────────────────────────[39m[90m┴─────────────────┘[39m"
+"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking input.html [39m
+[35m[39m
+ [33mOutput for filename : input.html [39m
+[33m[39m
+[90m┌────────────────────────────────[39m[90m┬─────────────────┐[39m
+[90m│[39m[31m Message                        [39m[90m│[39m[31m Rule Name       [39m[90m│[39m
+[90m├────────────────────────────────[39m[90m┼─────────────────┤[39m
+[90m│[39m the tag < h3 > has no content. [90m│[39m no-empty-tag    [90m│[39m
+[90m├────────────────────────────────[39m[90m┼─────────────────┤[39m
+[90m│[39m duplicate ids asd adsasd @ a   [90m│[39m no-duplicate-id [90m│[39m
+[90m└────────────────────────────────[39m[90m┴─────────────────┘[39m"
 `;
 
 exports[`Testing CLI behavior extend config : fixture : extendConfig should not show the linting errors  ( htmllinter.config.js present) as non-Error files : extend config 1`] = `
-"[HTMLLINTER] : Checking noError.html 
+"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking noError.html [39m
+[35m[39m
 
-
-[HTMLLINTER] : 0 errors found for file noError.html
-
- Output for filename : noError.html 
-
+[48;2;0;128;0m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file noError.html[39m
+[32m[39m
+ [33mOutput for filename : noError.html [39m
+[33m[39m
 [90m┌─────────[39m[90m┬───────────┐[39m
 [90m│[39m[31m Message [39m[90m│[39m[31m Rule Name [39m[90m│[39m
 [90m└─────────[39m[90m┴───────────┘[39m"
 `;
 
 exports[`Testing CLI behavior extend config : fixture : extendConfig should show the linting errors  ( htmllinter.config.js present) : extend config 1`] = `
-"[HTMLLINTER] : Checking input.html 
-
- Output for filename : input.html 
-
+"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking input.html [39m
+[35m[39m
+ [33mOutput for filename : input.html [39m
+[33m[39m
 [90m┌───────────────────────────────────────────────────────────────────────────────────────────────────────[39m[90m┬──────────────────────────────┐[39m
 [90m│[39m[31m Message                                                                                               [39m[90m│[39m[31m Rule Name                    [39m[90m│[39m
 [90m├───────────────────────────────────────────────────────────────────────────────────────────────────────[39m[90m┼──────────────────────────────┤[39m
@@ -112,7 +113,7 @@ exports[`Testing CLI behavior extend config : fixture : extendConfig should show
 [90m├───────────────────────────────────────────────────────────────────────────────────────────────────────[39m[90m┼──────────────────────────────┤[39m
 [90m│[39m the tag < h3 > has no content.                                                                        [90m│[39m no-empty-tag                 [90m│[39m
 [90m├───────────────────────────────────────────────────────────────────────────────────────────────────────[39m[90m┼──────────────────────────────┤[39m
-[90m│[39m [HTMLINTER] duplicate ids asd adsasd @ a                                                              [90m│[39m no-duplicate-id              [90m│[39m
+[90m│[39m duplicate ids asd adsasd @ a                                                                          [90m│[39m no-duplicate-id              [90m│[39m
 [90m├───────────────────────────────────────────────────────────────────────────────────────────────────────[39m[90m┼──────────────────────────────┤[39m
 [90m│[39m the attribute \\"enable\\" seems to be boolean with value \\"true\\",please conside using \\"<p enable>...</p>\\" [90m│[39m no-bool-true-explicit-define [90m│[39m
 [90m│[39m                                                                                                       [90m│[39m                              [90m│[39m
@@ -120,92 +121,100 @@ exports[`Testing CLI behavior extend config : fixture : extendConfig should show
 `;
 
 exports[`Testing CLI behavior extend config with rule off : fixture : extendConfigRuleOff should not show the linting errors  ( htmllinter.config.js present) as non-Error files : extend config rule off 1`] = `
-"[HTMLLINTER] : Checking noError.html 
+"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking noError.html [39m
+[35m[39m
 
-
-[HTMLLINTER] : 0 errors found for file noError.html
-
- Output for filename : noError.html 
-
+[48;2;0;128;0m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file noError.html[39m
+[32m[39m
+ [33mOutput for filename : noError.html [39m
+[33m[39m
 [90m┌─────────[39m[90m┬───────────┐[39m
 [90m│[39m[31m Message [39m[90m│[39m[31m Rule Name [39m[90m│[39m
 [90m└─────────[39m[90m┴───────────┘[39m"
 `;
 
 exports[`Testing CLI behavior extend config with rule off : fixture : extendConfigRuleOff should show the linting errors  ( htmllinter.config.js present) : extend config rule off 1`] = `
-"[HTMLLINTER] : Checking ./fixtures/extendConfigRuleOff/input.html 
-
- Output for filename : ./fixtures/extendConfigRuleOff/input.html 
-
-[90m┌──────────────────────────────────────────[39m[90m┬─────────────────┐[39m
-[90m│[39m[31m Message                                  [39m[90m│[39m[31m Rule Name       [39m[90m│[39m
-[90m├──────────────────────────────────────────[39m[90m┼─────────────────┤[39m
-[90m│[39m [HTMLINTER] duplicate ids asd adsasd @ a [90m│[39m no-duplicate-id [90m│[39m
-[90m└──────────────────────────────────────────[39m[90m┴─────────────────┘[39m"
+"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking ./fixtures/extendConfigRuleOff/input.html [39m
+[35m[39m
+ [33mOutput for filename : ./fixtures/extendConfigRuleOff/input.html [39m
+[33m[39m
+[90m┌──────────────────────────────[39m[90m┬─────────────────┐[39m
+[90m│[39m[31m Message                      [39m[90m│[39m[31m Rule Name       [39m[90m│[39m
+[90m├──────────────────────────────[39m[90m┼─────────────────┤[39m
+[90m│[39m duplicate ids asd adsasd @ a [90m│[39m no-duplicate-id [90m│[39m
+[90m└──────────────────────────────[39m[90m┴─────────────────┘[39m"
 `;
+
+exports[`Testing CLI behavior input pattern should show help when no arg is passed with proper err message: [HTMLLINTER]: no argument passed. Please provide the input file(s) atleast 1`] = `"[41m[HTMLLINTER]:[49m [31mno argument passed. Please provide the input file(s) atleast[39m"`;
 
 exports[`Testing CLI behavior input pattern should show help when no arg is passed with proper err message: help 1`] = `
-"
-Usage :
-
-$ htmllinter <input> [-c|--config]
-
-input           - it is the input(html) file name, it accepts glob pattern.
-                example :
-                  - \\"input.html\\"
-                  - \\"input\\"
-                  - \\"/*.html\\"
-                  - \\".\\"
-
-Options
-  -c, --config    - path to htmllinter.config.js.
-                    default is \\".\\"
-                    example :
-                    - '.'
-                    - './dir/'
-
-Example
-
-    $ htmllinter input.html
-    $ htmllinter input -c ../
-    $ htmllinter **/*"
+"[93m[39m
+[93mUsage :[39m
+[93m[39m
+[93m$ htmllinter <input> [-c|--config][39m
+[93m[39m
+[93minput           - it is the input(html) file name, it accepts glob pattern.[39m
+[93m                example :[39m
+[93m                  - \\"input.html\\"[39m
+[93m                  - \\"input\\"[39m
+[93m                  - \\"/*.html\\"[39m
+[93m                  - \\".\\"[39m
+[93m[39m
+[93mOptions[39m
+[93m  -c, --config    - path to htmllinter.config.js.[39m
+[93m                    default is \\".\\"[39m
+[93m                    example :[39m
+[93m                    - '.'[39m
+[93m                    - './dir/'[39m
+[93m[39m
+[93mExample[39m
+[93m[39m
+[93m    $ htmllinter input.html[39m
+[93m    $ htmllinter input -c ../[39m
+[93m    $ htmllinter **/*[39m
+[93m[39m"
 `;
+
+exports[`Testing CLI behavior input pattern should show help when when non-existing input is passed with proper err message: [HTMLLINTER]: no file found with input pattern : nonExist.html 1`] = `"[41m[HTMLLINTER]:[49m [31mno file found with input pattern : nonExist.html[39m"`;
 
 exports[`Testing CLI behavior input pattern should show help when when non-existing input is passed with proper err message: help 1`] = `
-"
-Usage :
-
-$ htmllinter <input> [-c|--config]
-
-input           - it is the input(html) file name, it accepts glob pattern.
-                example :
-                  - \\"input.html\\"
-                  - \\"input\\"
-                  - \\"/*.html\\"
-                  - \\".\\"
-
-Options
-  -c, --config    - path to htmllinter.config.js.
-                    default is \\".\\"
-                    example :
-                    - '.'
-                    - './dir/'
-
-Example
-
-    $ htmllinter input.html
-    $ htmllinter input -c ../
-    $ htmllinter **/*"
+"[93m[39m
+[93mUsage :[39m
+[93m[39m
+[93m$ htmllinter <input> [-c|--config][39m
+[93m[39m
+[93minput           - it is the input(html) file name, it accepts glob pattern.[39m
+[93m                example :[39m
+[93m                  - \\"input.html\\"[39m
+[93m                  - \\"input\\"[39m
+[93m                  - \\"/*.html\\"[39m
+[93m                  - \\".\\"[39m
+[93m[39m
+[93mOptions[39m
+[93m  -c, --config    - path to htmllinter.config.js.[39m
+[93m                    default is \\".\\"[39m
+[93m                    example :[39m
+[93m                    - '.'[39m
+[93m                    - './dir/'[39m
+[93m[39m
+[93mExample[39m
+[93m[39m
+[93m    $ htmllinter input.html[39m
+[93m    $ htmllinter input -c ../[39m
+[93m    $ htmllinter **/*[39m
+[93m[39m"
 `;
 
+exports[`Testing CLI behavior input pattern should show message when wrong pattern is pass: [HTMLLINTER]: no file found with input pattern : dir,dir2 1`] = `"[41m[HTMLLINTER]:[49m [31mno file found with input pattern : dir,dir2[39m"`;
+
 exports[`Testing CLI behavior no config file : fixture : noConfig should load default config when neither config arg is passed nor htmllinter.config.js is present: Output for loading default config { } 1`] = `
-"[HTMLLINTER] : Checking input.html 
+"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking input.html [39m
+[35m[39m
 
-
-[HTMLLINTER] : 0 errors found for file input.html
-
- Output for filename : input.html 
-
+[48;2;0;128;0m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file input.html[39m
+[32m[39m
+ [33mOutput for filename : input.html [39m
+[33m[39m
 [90m┌─────────[39m[90m┬───────────┐[39m
 [90m│[39m[31m Message [39m[90m│[39m[31m Rule Name [39m[90m│[39m
 [90m└─────────[39m[90m┴───────────┘[39m"

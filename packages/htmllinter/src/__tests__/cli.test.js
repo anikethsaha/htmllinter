@@ -6,16 +6,17 @@ describe('Testing CLI behavior', () => {
     it('should show help when no arg is passed with proper err message', () => {
       const result = run(__dirname);
       expect(result.exitCode).toBe(0);
-      expect(result.stderr).toBe(
-        '[HTMLLINTER]: no argument passed. Please provide the input file(s) atleast'
+      expect(result.stderr).toMatchSnapshot(
+        `[HTMLLINTER]: no argument passed. Please provide the input file(s) atleast`
       );
+
       expect(result.stdout).toMatchSnapshot('help');
     });
 
     it('should show help when when non-existing input is passed with proper err message', () => {
       const inputFileName = 'nonExist.html';
       const result = run(__dirname, [inputFileName]);
-      expect(result.stderr).toBe(
+      expect(result.stderr).toMatchSnapshot(
         `[HTMLLINTER]: no file found with input pattern : ${inputFileName}`
       );
       expect(result.exitCode).toBe(0);
@@ -25,7 +26,7 @@ describe('Testing CLI behavior', () => {
     it('should show message when wrong pattern is pass', () => {
       const pattern = 'dir,dir2';
       const result = run(__dirname, [pattern]);
-      expect(result.stderr).toBe(
+      expect(result.stderr).toMatchSnapshot(
         `[HTMLLINTER]: no file found with input pattern : ${pattern}`
       );
       expect(result.exitCode).toBe(0);
