@@ -50,7 +50,7 @@ exports[`Testing CLI behavior default config : fixture : defaultConfig should no
 "[93m[39m
 [93mUsage :[39m
 [93m[39m
-[93m$ htmllinter <input> [-c|--config][39m
+[93m$ htmllinter <input> [Options][39m
 [93m[39m
 [93minput           - it is the input(html) file name, it accepts glob pattern.[39m
 [93m                example :[39m
@@ -94,7 +94,7 @@ exports[`Testing CLI behavior input pattern should show help when no arg is pass
 "[93m[39m
 [93mUsage :[39m
 [93m[39m
-[93m$ htmllinter <input> [-c|--config][39m
+[93m$ htmllinter <input> [Options][39m
 [93m[39m
 [93minput           - it is the input(html) file name, it accepts glob pattern.[39m
 [93m                example :[39m
@@ -124,7 +124,7 @@ exports[`Testing CLI behavior input pattern should show help when when non-exist
 "[93m[39m
 [93mUsage :[39m
 [93m[39m
-[93m$ htmllinter <input> [-c|--config][39m
+[93m$ htmllinter <input> [Options][39m
 [93m[39m
 [93minput           - it is the input(html) file name, it accepts glob pattern.[39m
 [93m                example :[39m

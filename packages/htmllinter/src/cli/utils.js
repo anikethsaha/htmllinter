@@ -69,7 +69,7 @@ export const getConfig = (args) => {
 export const help = chalk.yellowBright(`
 Usage :
 
-$ htmllinter <input> [-c|--config]
+$ htmllinter <input> [Options]
 
 input           - it is the input(html) file name, it accepts glob pattern.
                 example :

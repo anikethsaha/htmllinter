@@ -32,7 +32,7 @@ $ npm install @htmllinter/core @htmllinter/basic-standard --save-dev
 - `@htmllinter/core` is the linter which comes with its own CLI to run with. It supports pretty error display in table format. It has node API which can be use to
   linter node programs.
 
-- `@htmllinter/basic-standard`: it is the rule package, which consist of basic rules that can be configured through [htmllinter's config file](#config_file). [CLICK HERE](https://github.com/anikethsaha/htmllinter/blob/master/packages/basic-standard/README.md) to see the rules it comes with.
+- `@htmllinter/basic-standard`: it is the rule package, which consist of basic rules that can be configured through [htmllinter's config file](#config-file). [CLICK HERE](https://github.com/anikethsaha/htmllinter/blob/master/packages/basic-standard/README.md) to see the rules it comes with.
 
 ## Usage
 
@@ -73,7 +73,7 @@ The CLI is one of the to run the `htmllinter`. It comes by default with `htmllit
 
 Usage :
 
-$ htmllinter <input> [-c|--config]
+$ htmllinter <input> [Options]
 
 input           - it is the input(html) file name, it accepts glob pattern.
                 example :
