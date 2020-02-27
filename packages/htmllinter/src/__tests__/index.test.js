@@ -26,10 +26,10 @@ describe('running the htmllinter.run api using no config', () => {
   });
 });
 describe('running the htmllinter.run api with config', () => {
-  describe('extend', () => {
+  describe('standard', () => {
     it('should return linting data', async () => {
       const config = {
-        extend: require('../../../basic-standard'),
+        standard: require('../../../basic-standard'),
       };
       const result = await run(html, config);
       expect(typeof result).toBe('object');
@@ -39,12 +39,12 @@ describe('running the htmllinter.run api with config', () => {
         ruleNames.push(res.ruleName);
       });
       expect(ruleNames.sort()).toEqual(
-        Object.keys(config.extend.plugins).sort()
+        Object.keys(config.standard.plugins).sort()
       );
     });
     it('should return linting data with rules disable', async () => {
       const config = {
-        extend: require('../../../basic-standard'),
+        standard: require('../../../basic-standard'),
         rules: {
           'no-duplicate-id': 'off',
         },
@@ -62,7 +62,7 @@ describe('running the htmllinter.run api with config', () => {
     });
     it('should return linting data [] (empty) with all rules disable', async () => {
       const config = {
-        extend: require('../../../basic-standard'),
+        standard: require('../../../basic-standard'),
         rules: {
           'no-duplicate-id': 'off',
           'no-bool-true-explicit-define': 'off',

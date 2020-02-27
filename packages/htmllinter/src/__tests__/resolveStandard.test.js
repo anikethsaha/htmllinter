@@ -1,7 +1,7 @@
-import resolveExtends from '../resolveExtends';
+import resolveStandards from '../resolveStandards';
 
 /**
- * config = { extend:
+ * config = { standard:
        { plugins:
           { 'no-empty-tag': [Function: no-empty-tag],
             'no-duplicate-id': [Function: no-duplicate-id],
@@ -12,12 +12,12 @@ import resolveExtends from '../resolveExtends';
             'no-bool-true-explicit-define': 'on' } } }
  *
  */
-describe('testing resolveExtends', () => {
+describe('testing resolveStandards', () => {
   it('should not return any plugins as rules passed is empty object :  {}', async () => {
     // plugins are nothing but a function
     const mockPlugin = () => 'done from plugin';
 
-    const result = await resolveExtends(
+    const result = await resolveStandards(
       {
         plugins: {
           'no-empty-tag': mockPlugin,
@@ -32,7 +32,7 @@ describe('testing resolveExtends', () => {
     // plugins are nothing but a function
     const mockPlugin = () => 'done from plugin';
 
-    const result = await resolveExtends({
+    const result = await resolveStandards({
       plugins: {
         'no-empty-tag': mockPlugin,
       },
@@ -45,7 +45,7 @@ describe('testing resolveExtends', () => {
     // plugins are nothing but a function
     const mockPlugin = (typ) => `done from plugin ${typ}`;
 
-    const result = await resolveExtends(
+    const result = await resolveStandards(
       {
         plugins: {
           'no-duplicate-id': mockPlugin.bind(this, 'no-duplicate-id'),

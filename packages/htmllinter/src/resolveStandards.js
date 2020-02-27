@@ -1,11 +1,11 @@
-export default (extend, rules) => {
+export default (standard, rules) => {
   if (!rules || rules.length === 0) {
     // no rules needs to be turn off or
     // no options is needs to be passed
     let plugins = [];
 
-    Object.keys(extend.plugins).map((ruleName) =>
-      plugins.push(extend.plugins[ruleName])
+    Object.keys(standard.plugins).map((ruleName) =>
+      plugins.push(standard.plugins[ruleName])
     );
 
     return plugins;
@@ -13,7 +13,7 @@ export default (extend, rules) => {
     let plugins = [];
     // disable rules
     const completeRules = {
-      ...extend.rules,
+      ...standard.rules,
       ...rules,
     };
     Object.keys(completeRules)
@@ -49,7 +49,7 @@ export default (extend, rules) => {
         }
       })
       .map((rule) => {
-        if (extend.plugins[rule] !== undefined) {
+        if (standard.plugins[rule] !== undefined) {
           /**
            * Rules may come from plugins as well,
            * standards are just grouping of individuals rules/plugins
@@ -62,7 +62,7 @@ export default (extend, rules) => {
            * plugin(rule) if the type is "Object"
            *
            */
-          plugins.push(extend.plugins[rule]);
+          plugins.push(standard.plugins[rule]);
         }
       });
 
@@ -73,7 +73,7 @@ export default (extend, rules) => {
 /**
  * DONE
  * Need to handle the case when, nothing is mention in the rule
- * about any plugin from the extends.
+ * about any plugin from the standards.
  *
  * i.e
  *
@@ -94,7 +94,7 @@ export default (extend, rules) => {
  * 1. plugins - required
  * 2. rules - required
  *
- * extend.rules are prepended at the config's rules as they
+ * standard.rules are prepended at the config's rules as they
  * can be overwritable
  *
  */
