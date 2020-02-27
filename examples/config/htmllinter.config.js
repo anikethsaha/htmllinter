@@ -1,14 +1,15 @@
 module.exports = {
-  extend: '', // no-op
+  standard: '', // no-op
   /**
-   * extends are nothing by group of plugins and rules.
+   * standards are nothing by group of plugins and rules.
    * rules will be defined in the plugins
    * htmllinter doesnt hold any rule in the core
-   * so, everything is at extend level to start with
+   * so, everything is at standard level to start with
    * "rules" are used to control the plugins and pass data in it
    *
    *
-   * EXAMPLE : "require("./htmllint-basic-config")"
+   * EXAMPLE :
+   * standard :  "require("./htmllint-basic-config")"
    */
 
   plugins: [
@@ -26,7 +27,7 @@ module.exports = {
     /**
      * EXAMPLE : "no-empty-tag": "on"
      * These rules will be overwride the rule for the
-     * particular ruleName comming from the extend
+     * particular ruleName comming from the `standard`
      *
      * two cases for rules,
      * either off or want to pass any options

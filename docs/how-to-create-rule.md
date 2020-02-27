@@ -8,7 +8,7 @@ usefull data to help developing the rule
 
 A simple rule having as mentioned ealier, is a module exporting two properties
 
-Suppose you have a folder name `rule` inside `src`, then 
+Suppose you have a folder name `rule` inside `src`, then
 
 `src/rules/your-rule-name.js`
 
@@ -16,14 +16,14 @@ Suppose you have a folder name `rule` inside `src`, then
 module.exports = {
   ruleName: 'your-rule-name-here',
   rule : (options = {}, reporter = [], reportNode = []) => {
-      
+
       return function(tree){
         tree.walk(node => {
           ...
           // use the 'reporter` array to pass your message to `htmllinter` reporter
           reporter.push('there is some linting err at tag `p` ')
         })
-      } 
+      }
   }
 }
 ```
@@ -33,53 +33,51 @@ Now while exporting the rule, wrap it with `htmllinter.createHTMLLintPlugin` met
 `src/index.js`
 
 ```js
-const htmllinter = require('htmllinter')
-const myRule = require('./rules/your-rule-name')
+const htmllinter = require('htmllinter');
+const myRule = require('./rules/your-rule-name');
 
-const {ruleName, rule} = myRule
+const { ruleName, rule } = myRule;
 
 module.exports = {
-  [ruleName] : function(html){
-    return htmllinter.createHTMLLintPlugin(html, {ruleName, rule})
-  }
-}
+  [ruleName]: function(html) {
+    return htmllinter.createHTMLLintPlugin(html, { ruleName, rule });
+  },
+};
 ```
 
 Now if you want your rule to be available as `standard (groups of rules which will be on by default from user's config)` or as plugin the only
-difference is you need to export extra property if its for `extend` and no change for if its `plugin`
+difference is you need to export extra property if its for `standard` and no change for if its `plugin`
 
-
-### For `plugins` 
+### For `plugins`
 
 There is no change need for `plugins` as rules for plugins must be configured by the user at their `htmllinter.config.js`
 
 **Please refer the `plugins` example present [`here`](https://github.com/anikethsaha/htmllinter/tree/master/examples/plugins)**
 
-
-### For `extend`
+### For `standard`
 
 in your `src/index.js` you need to export two things `plugins` objects and `rules` object
 
 `src/index.js`
 
 ```js
-const htmllinter = require('htmllinter')
-const myRule = require('./rules/your-rule-name')
+const htmllinter = require('htmllinter');
+const myRule = require('./rules/your-rule-name');
 
-const {ruleName, rule} = myRule
+const { ruleName, rule } = myRule;
 
 exports.plugins = {
-  [ruleName] : function(html){
-    return htmllinter.createHTMLLintPlugin(html, {ruleName, rule})
-  }
-}
+  [ruleName]: function(html) {
+    return htmllinter.createHTMLLintPlugin(html, { ruleName, rule });
+  },
+};
 
 exports.rules = {
-  [ruleName] : 'on' // or 'off'
-}
+  [ruleName]: 'on', // or 'off'
+};
 ```
 
-Thats it :tada: . 
+Thats it :tada: .
 
 ## Contribute
 

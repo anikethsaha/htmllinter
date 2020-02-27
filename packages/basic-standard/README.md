@@ -1,6 +1,6 @@
 # @htmllinter/basic-standard
 
-basic rules for `htmllinter` which are used for extending using `extend` property of `htmllinter.config.js`
+basic rules for `htmllinter` which are used to setting the standard/type using `standard` property of `htmllinter.config.js`
 
 ## Installation
 
@@ -14,7 +14,7 @@ in your `htmllinter.config.js` file
 
 ```js
 module.exports = {
-  extend: require('@htmllinter/basic-standard'),
+  standard: require('@htmllinter/basic-standard'),
 };
 ```
 

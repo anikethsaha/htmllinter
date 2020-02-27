@@ -90,7 +90,7 @@ Example
 
 There are three properties this config file exports
 
-### 1. `extend`
+### 1. `standard`
 
 Type : `Object (modules)`
 Default : `none`
@@ -101,7 +101,7 @@ This packages mainly consist of group of rules defination and rules list. Rules 
 
 ```js
 module.exports = {
-  extends: require('@htmllinter/basic-standard'),
+  standard: require('@htmllinter/basic-standard'),
 };
 ```
 

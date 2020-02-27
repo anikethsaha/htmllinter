@@ -36,7 +36,7 @@ describe('Testing CLI behavior', () => {
   describe('Config flag', () => {
     it('should show message when correct path to config is passed but not present', () => {
       const configFilePath = './utils';
-      const pattern = './fixtures/extendConfig/*.html';
+      const pattern = './fixtures/standardConfig/*.html';
       const result = run(__dirname, [pattern, '--config', configFilePath]);
       const errArr = result.stderr.split(' ');
       expect(errArr).toContain('Cannot');
@@ -51,7 +51,7 @@ describe('Testing CLI behavior', () => {
     it('should show message when htmllinter.config.js is passed along with the path even if correct', () => {
       const configFilePath = './htmllinter.config.js';
       const pattern = '*.html';
-      const result = run(resolve(__dirname, './fixtures/extendConfig'), [
+      const result = run(resolve(__dirname, './fixtures/standardConfig'), [
         pattern,
         '--config',
         configFilePath,
@@ -105,54 +105,52 @@ describe('Testing CLI behavior', () => {
     });
   });
 
-  describe('extend config : fixture : extendConfig', () => {
+  describe('standard config : fixture : standardConfig', () => {
     it('should show the linting errors  ( htmllinter.config.js present) ', () => {
       const configFilePath = '/';
       const pattern = 'input.html';
-      const result = run(resolve(__dirname, './fixtures/extendConfig'), [
+      const result = run(resolve(__dirname, './fixtures/standardConfig'), [
         pattern,
         '-c',
         configFilePath,
       ]);
 
       expect(result.exitCode).toBe(1);
-      expect(result.stdout).toMatchSnapshot('extend config');
+      expect(result.stdout).toMatchSnapshot('standard config');
     });
 
     it('should not show the linting errors  ( htmllinter.config.js present) as non-Error files ', () => {
       const configFilePath = './';
       const pattern = 'noError.html';
-      const result = run(resolve(__dirname, './fixtures/extendConfig'), [
+      const result = run(resolve(__dirname, './fixtures/standardConfig'), [
         pattern,
         '-c',
         configFilePath,
       ]);
 
       expect(result.exitCode).toBe(0);
-      expect(result.stdout).toMatchSnapshot('extend config');
+      expect(result.stdout).toMatchSnapshot('standard config');
     });
   });
 
-  describe('extend config with rule off : fixture : extendConfigRuleOff', () => {
+  describe('standard config with rule off : fixture : standardConfigRuleOff', () => {
     it('should show the linting errors  ( htmllinter.config.js present) ', () => {
-      const configFilePath = './fixtures/extendConfigRuleOff';
-      const pattern = './fixtures/extendConfigRuleOff/input.html';
+      const configFilePath = './fixtures/standardConfigRuleOff';
+      const pattern = './fixtures/standardConfigRuleOff/input.html';
       const result = run(__dirname, [pattern, '-c', configFilePath]);
-
       expect(result.exitCode).toBe(1);
-      expect(result.stdout).toMatchSnapshot('extend config rule off');
+      expect(result.stdout).toMatchSnapshot('standard config rule off');
     });
 
     it('should not show the linting errors  ( htmllinter.config.js present) as non-Error files ', () => {
       const configFilePath = './';
       const pattern = 'noError.html';
-      const result = run(resolve(__dirname, './fixtures/extendConfigRuleOff'), [
-        pattern,
-        '-c',
-        configFilePath,
-      ]);
+      const result = run(
+        resolve(__dirname, './fixtures/standardConfigRuleOff'),
+        [pattern, '-c', configFilePath]
+      );
       expect(result.exitCode).toBe(0);
-      expect(result.stdout).toMatchSnapshot('extend config rule off');
+      expect(result.stdout).toMatchSnapshot('standard config rule off');
     });
   });
 });
