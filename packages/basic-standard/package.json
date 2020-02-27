@@ -1,6 +1,6 @@
 {
   "name": "@htmllinter/basic-standard",
-  "version": "0.1.1",
+  "version": "0.0.1",
   "description": "basic standard for htmllinter used for setting the standard the config",
   "main": "dist/index.js",
   "scripts": {
