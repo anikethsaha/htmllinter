@@ -2,6 +2,8 @@
 
 html linter based on posthtml. shareable and plug-able linter made on top of posthtml
 
+> latest version 0.0.1
+
 ## Table of Contents
 
 - [Installation](#installation)

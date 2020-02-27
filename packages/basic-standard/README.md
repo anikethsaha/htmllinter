@@ -2,6 +2,8 @@
 
 basic rules for `htmllinter` which are used to setting the standard/type using `standard` property of `htmllinter.config.js`
 
+> latest version 0.0.1
+
 ## Installation
 
 ```shell
