@@ -1,6 +1,18 @@
-# htmllinter
 
-html linter based on posthtml. shareable and plug-able linter made on top of posthtml
+<p align="center">
+  
+<h1 align="center"> htmllinter </h1>
+
+<p align="center"> html linter based on posthtml. shareable and plug-able linter made on top of posthtml </p>
+
+</p>
+
+<p align="center">
+
+<img alt="efba logo" src="https://imgur.com/9pWjH5N.png" width="350px" />
+
+</p>
+
 
 > latest version 0.0.1
 
