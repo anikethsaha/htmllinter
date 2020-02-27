@@ -1,6 +1,6 @@
 {
   "name": "@htmllinter/basic-standard",
-  "version": "0.1.0",
+  "version": "0.1.1-alpha.0",
   "description": "basic standard for htmllinter used for setting the standard the config",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "rollup -c rollup.config.js"
   },
   "dependencies": {
-    "@htmllinter/core": "^0.1.0"
+    "@htmllinter/core": "^0.1.1-alpha.0"
   },
   "files": [
     "dist"
