@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "del-cli dist",
-    "build": "rollup -c rollup.config.js"
+    "build": "rollup -c rollup.config.js",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@htmllinter/core": "^0.1.1"
