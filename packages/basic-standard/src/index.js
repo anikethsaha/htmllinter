@@ -1,4 +1,4 @@
-import { createHTMLLintPlugin } from 'htmllinter';
+import { createHTMLLintPlugin } from '@htmllinter/core';
 
 import noEmptyTag from './rules/no-empty-tag';
 import noBoolTrueExplicitDefine from './rules/no-bool-true-explicit-define';

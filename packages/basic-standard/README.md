@@ -1,28 +1,28 @@
-# htmllinter-basic-standard
+# @htmllinter/basic-standard
 
 basic rules for `htmllinter` which are used for extending using `extend` property of `htmllinter.config.js`
 
-## Installation 
+## Installation
 
 ```shell
-$ npm install htmllinter htmllinter-basic-standard --save-dev
+$ npm install @htmllinter/core @htmllinter/basic-standard --save-dev
 ```
 
-## Usage 
+## Usage
 
 in your `htmllinter.config.js` file
 
 ```js
 module.exports = {
-  extend : require('htmllinter-basic-standard')
-}
+  extend: require('@htmllinter/basic-standard'),
+};
 ```
 
 ## Rules
 
 ### 1. `no-empty-tag`
 
-This rule throws error when there is an empty html tag used. 
+This rule throws error when there is an empty html tag used.
 
 `example`
 
@@ -47,10 +47,9 @@ This rule throws error when there are more than one id of same value being decla
 
 `example`
 
-
 ```html
-  <a id="sameID">adMy First Headings</a>
-  <h3 id="sameID">My First Heading</h3>
+<a id="sameID">adMy First Headings</a>
+<h3 id="sameID">My First Heading</h3>
 ```
 
 here, the `sameID` in `h3` is mark as duplicate
@@ -69,9 +68,8 @@ This rule will throw error when attributes as valued as `true` like this `<a ena
 
 `example`
 
-
 ```html
-  <h3 enable=true>My First Heading</h3>
+<h3 enable="true">My First Heading</h3>
 ```
 
 output
@@ -85,15 +83,13 @@ output
 └─────────────────────────────────────────────────────────────────────────────────────────────────────────┴──────────────────────────────┘
 ```
 
-
 ## Development status
 
 **More rules will be added soon.**
 
 Please contribute with correcting the existing rules or by adding a new rule
 
-
-## Steps to add new rule in `htmllinter-basic-standard`
+## Steps to add new rule in `@htmllinter/basic-standard`
 
 Please create an issue with Title
 
