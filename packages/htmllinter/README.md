@@ -2,6 +2,25 @@
 
 html linter based on posthtml. shareable and plug-able linter made on top of posthtml
 
+## Table of Contents
+
+- [Installation](#installation)
+  - [About the packages](#about-the-packages)
+- [Usage](#usage)
+- [CLI](#cli)
+  - [Usage](#usage-1)
+- [Node API](#node-api)
+- [Config File](#config-file)
+  - [1. `standard`](#1-standard)
+  - [2. `plugins`](#2-plugins)
+  - [2. `rules`](#2-rules)
+- [Rules](#rules)
+- [Creating your own `rules` or `plugins`](#creating-your-own-rules-or-plugins)
+- [Creating your own `standards`](#creating-your-own-standards)
+- [Contributing](#contributing)
+- [Note](#note)
+- [Inspiration/Thanks](#inspirationthanks)
+
 ## Installation
 
 ```shell
