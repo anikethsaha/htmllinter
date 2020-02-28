@@ -68,3 +68,107 @@ exports default {
 Thats it :tada:
 
 > These rules can be turned `off`/`on` from user's config file as well
+
+
+## How it works
+
+the `htmllinter.run` api takes two paramets, 
+- `html` which is the html input as `string`
+- `config` which is the config from user's `htmllinter.config.js`
+
+If user's config consist this
+
+
+`htmllinter.config.js`
+
+```js
+{
+  extend : require('@htmllinter/basic-config'),
+  plugins : [require('my-own-plugin')],
+  rules : {
+    'my-own-plugin' : 'off'
+  }
+  
+}
+
+```
+
+the, node's require aglorithm method will transform it like this 
+
+```js
+{
+  extend : {
+      plugins: [basicRules],
+      rules: {
+      'no-empty-tag': 'on',
+      'no-duplicate-id': 'on',
+      'no-bool-true-explicit-define': 'on',
+    }
+  },
+  plugins : [require('my-own-plugin')],
+  rules : {
+    'my-own-plugin' : 'off'
+  }
+  
+}
+```
+
+`basicRules` module consist 
+
+```
+{
+   'no-empty-tag': html => core.createHTMLLintPlugin(html, noEmptyTag),
+   'no-duplicate-id': html => core.createHTMLLintPlugin(html, noDupId),
+   'no-bool-true-explicit-define': html => core.createHTMLLintPlugin(html, noBoolTrueExplicitDefine)
+
+}
+
+```
+So, again node will tranform it like this 
+
+```js
+{
+  extend : {
+      plugins: [
+          {
+             'no-empty-tag': html => core.createHTMLLintPlugin(html, noEmptyTag),
+             'no-duplicate-id': html => core.createHTMLLintPlugin(html, noDupId),
+             'no-bool-true-explicit-define': html => core.createHTMLLintPlugin(html, noBoolTrueExplicitDefine)
+          }
+      ],
+      rules: {
+      'no-empty-tag': 'on',
+      'no-duplicate-id': 'on',
+      'no-bool-true-explicit-define': 'on',
+    }
+  },
+  plugins : [require('my-own-plugin')],
+  rules : {
+    'my-own-plugin' : 'off'
+  }
+  
+}
+```
+
+Now , `htmllinter`'s config resolver method will transform the whole like this
+
+
+```js
+{
+  plugins : [
+    'no-empty-tag': html => core.createHTMLLintPlugin(html, noEmptyTag),
+    'no-duplicate-id': html => core.createHTMLLintPlugin(html, noDupId),
+    'no-bool-true-explicit-define': html => core.createHTMLLintPlugin(html, noBoolTrueExplicitDefine,
+    'my-own-plugin': html => core.createHTMLLintPlugin(html, myQwnPlugin),
+  ],
+  rules : {
+    'no-empty-tag': 'on',
+    'no-duplicate-id': 'on',
+    'no-bool-true-explicit-define': 'on',
+    'my-own-plugin' : 'off'
+  }
+  
+}
+```
+
+
