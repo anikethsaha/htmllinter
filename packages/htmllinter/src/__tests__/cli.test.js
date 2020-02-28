@@ -36,7 +36,7 @@ describe('Testing CLI behavior', () => {
   describe('Config flag', () => {
     it('should show message when correct path to config is passed but not present', () => {
       const configFilePath = './utils';
-      const pattern = './fixtures/standardConfig/*.html';
+      const pattern = './fixtures/extendConfig/*.html';
       const result = run(__dirname, [pattern, '--config', configFilePath]);
       const errArr = result.stderr.split(' ');
       expect(errArr).toContain('Cannot');
@@ -51,7 +51,7 @@ describe('Testing CLI behavior', () => {
     it('should show message when htmllinter.config.js is passed along with the path even if correct', () => {
       const configFilePath = './htmllinter.config.js';
       const pattern = '*.html';
-      const result = run(resolve(__dirname, './fixtures/standardConfig'), [
+      const result = run(resolve(__dirname, './fixtures/extendConfig'), [
         pattern,
         '--config',
         configFilePath,
@@ -105,11 +105,11 @@ describe('Testing CLI behavior', () => {
     });
   });
 
-  describe('standard config : fixture : standardConfig', () => {
+  describe('standard config : fixture : extendConfig', () => {
     it('should show the linting errors  ( htmllinter.config.js present) ', () => {
       const configFilePath = '/';
       const pattern = 'input.html';
-      const result = run(resolve(__dirname, './fixtures/standardConfig'), [
+      const result = run(resolve(__dirname, './fixtures/extendConfig'), [
         pattern,
         '-c',
         configFilePath,
@@ -122,7 +122,7 @@ describe('Testing CLI behavior', () => {
     it('should not show the linting errors  ( htmllinter.config.js present) as non-Error files ', () => {
       const configFilePath = './';
       const pattern = 'noError.html';
-      const result = run(resolve(__dirname, './fixtures/standardConfig'), [
+      const result = run(resolve(__dirname, './fixtures/extendConfig'), [
         pattern,
         '-c',
         configFilePath,
@@ -133,10 +133,10 @@ describe('Testing CLI behavior', () => {
     });
   });
 
-  describe('standard config with rule off : fixture : standardConfigRuleOff', () => {
+  describe('standard config with rule off : fixture : extendConfigRuleOff', () => {
     it('should show the linting errors  ( htmllinter.config.js present) ', () => {
-      const configFilePath = './fixtures/standardConfigRuleOff';
-      const pattern = './fixtures/standardConfigRuleOff/input.html';
+      const configFilePath = './fixtures/extendConfigRuleOff';
+      const pattern = './fixtures/extendConfigRuleOff/input.html';
       const result = run(__dirname, [pattern, '-c', configFilePath]);
       expect(result.exitCode).toBe(1);
       expect(result.stdout).toMatchSnapshot('standard config rule off');
@@ -145,10 +145,11 @@ describe('Testing CLI behavior', () => {
     it('should not show the linting errors  ( htmllinter.config.js present) as non-Error files ', () => {
       const configFilePath = './';
       const pattern = 'noError.html';
-      const result = run(
-        resolve(__dirname, './fixtures/standardConfigRuleOff'),
-        [pattern, '-c', configFilePath]
-      );
+      const result = run(resolve(__dirname, './fixtures/extendConfigRuleOff'), [
+        pattern,
+        '-c',
+        configFilePath,
+      ]);
       expect(result.exitCode).toBe(0);
       expect(result.stdout).toMatchSnapshot('standard config rule off');
     });

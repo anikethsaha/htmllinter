@@ -8,6 +8,7 @@
     "fixlint": "yarn lint -- --fix",
     "build": "lerna run build",
     "postinstall": "lerna bootstrap",
+    "bootstrap": "lerna exec npm install",
     "test:only": "jest",
     "linkDep": "lerna link",
     "publish": "lerna publish",

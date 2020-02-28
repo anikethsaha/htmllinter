@@ -51,7 +51,6 @@ export const getConfig = (args) => {
   }
 
   let config;
-
   try {
     config = require(configFilePath);
   } catch (error) {

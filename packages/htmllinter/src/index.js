@@ -1,25 +1,25 @@
 import posthtml from 'posthtml';
 import createHTMLLintPlugin from './createHtmlLinterPlugin';
 import helperPluginStart from './helperPluginStart';
-import resolveStandards from './resolveStandards';
+import resolveExtends from './resolveExtends';
 import resolveExternalPlugins from './resolveExternalPlugins';
 
 export const run = (html = '', config = {}) => {
   const plugins = [helperPluginStart];
-  if (config.standard) {
+  if (config.extend) {
     if (
-      typeof config.standard !== 'function' &&
-      typeof config.standard !== 'object'
+      typeof config.extend !== 'function' &&
+      typeof config.extend !== 'object'
     ) {
       console.error(
-        "[HTMLLINTER] type of 'config.standard' must be object (module), recieved ",
-        typeof config.standard
+        "[HTMLLINTER] type of 'config.extend' must be object (module), recieved ",
+        typeof config.extend
       );
       return;
     }
-    const pluginsFromStandard = resolveStandards(config.standard, config.rules);
+    const pluginsFromExtends = resolveExtends(config.extend, config.rules);
 
-    plugins.push(...pluginsFromStandard);
+    plugins.push(...pluginsFromExtends);
   }
   if (config.plugins) {
     if (typeof config.plugins !== 'object') {
