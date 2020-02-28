@@ -13,12 +13,12 @@ html linter based on posthtml. shareable and plug-able linter made on top of pos
   - [Usage](#usage-1)
 - [Node API](#node-api)
 - [Config File](#config-file)
-  - [1. `standard`](#1-standard)
+  - [1. `standard`](#1-config)
   - [2. `plugins`](#2-plugins)
   - [2. `rules`](#2-rules)
 - [Rules](#rules)
 - [Creating your own `rules` or `plugins`](#creating-your-own-rules-or-plugins)
-- [Creating your own `standards`](#creating-your-own-standards)
+- [Creating your own shareable `config`](#creating-your-own-shareable-config)
 - [Contributing](#contributing)
 - [Note](#note)
 - [Inspiration/Thanks](#inspirationthanks)
@@ -26,7 +26,7 @@ html linter based on posthtml. shareable and plug-able linter made on top of pos
 ## Installation
 
 ```shell
-$ npm install @htmllinter/core @htmllinter/basic-standard --save-dev
+$ npm install @htmllinter/core @htmllinter/basic-config --save-dev
 ```
 
 #### About the packages
@@ -34,7 +34,9 @@ $ npm install @htmllinter/core @htmllinter/basic-standard --save-dev
 - `@htmllinter/core` is the linter which comes with its own CLI to run with. It supports pretty error display in table format. It has node API which can be use to
   linter node programs.
 
-- `@htmllinter/basic-standard`: it is the rule package, which consist of basic rules that can be configured through [htmllinter's config file](#config-file). [CLICK HERE](https://github.com/anikethsaha/htmllinter/blob/master/packages/basic-standard/README.md) to see the rules it comes with.
+- `@htmllinter/basic-config`: it is the shareable config package which uses `@htmllinter/basic-rules` package to load rules and share it. Read more about it [**HERE**](https://github.com/anikethsaha/htmllinter/blob/config-feat/packages/basic-config/README.md)
+
+- `@htmllinter/basic-rules` : it is the rules package contains some basic rules. **You dont need to install it explicitly as it comes with `@htmllinter/basic-config`**
 
 ## Usage
 
@@ -47,8 +49,7 @@ $ htmllinter input.html
 ```
 
 in this command, if your `htmllinter.config.js` file is present at the directory from where this command is being run, then it will load that config file
-and run the linter and check the `input.html` file. If you dont have any `htmllinter.config.js` file preset at the root, it will load the linter
-with default config which is `{}`, an empty object.
+and run the linter and check the `input.html` file. **If you dont have any `htmllinter.config.js` file preset at the root, it will load the linter with default config which is `{}`, an empty object.**
 
 The input accepts a `glob` pattern, so it can be patterns like `**/*.html`, `*.html` etc.
 You can find more about these patterns [**here**](https://github.com/isaacs/node-glob#glob-primer)
@@ -111,24 +112,23 @@ Example
 
 There are three properties this config file exports
 
-### 1. `standard`
+### 1. `extend`
 
 Type : `Object (modules)`
 Default : `none`
 
-This packages mainly consist of group of rules defination and rules list. Rules belongs to these packages are turned on by default (_unless turned off by the author_)
+This option extends the config which is passed here.  A shareable config package is like an usual `htmllinter.config.js`. They exports properties like `plugins` , `rules` and they can even extend other config in `extend` property
 
 `htmllinter.config.js`
 
 ```js
 module.exports = {
-  standard: require('@htmllinter/basic-standard'),
+  extend: require('@htmllinter/basic-config'),
 };
 ```
 
-With this you can use all the rules provided by the package `@htmllinter/basic-standard`
 
-**Learn more about creating your own [`standard rule packages here`]()**
+**Learn more about creating your own [`shareable config rule packages here`]()**
 
 ### 2. `plugins`
 
@@ -184,7 +184,7 @@ module.exports = {
 
 `@htmllinter/core` doesnt comes with any rules, it is recommended to use `@htmllinter/basic-standard` along with it in order to get the rules.
 
-List of rules comes with [`@htmllinter/basic-standard`]()
+List of rules comes with [`@htmllinter/basic-rules`]()
 
 - `no-empty-tag` : Read [**here**] for more info about this
 - `no-duplicate-id` : Read [**here**] for more info about this
@@ -200,12 +200,11 @@ List of rules comes with [`@htmllinter/basic-standard`]()
 
 **[CLICK HERE to read in details how to create a rule](https://github.com/anikethsaha/htmllinter/blob/master/docs/how-to-create-rule.md)**
 
-## Creating your own `standards`
+## Creating your own shareable `config`
 
-A `standard` is nothing by a module exporting two object, one is `plugins` which itself is an object with `key` as the rule name and function which accepts a parameter `html` return rule wrapped in `htmllinter.createHTMLLintPlugin`
-and other exporting object is `rules` with the rules coming from these `plugins`/`rules`
+A shareable `config` is nothing by a module exporting a `htmllinter` config properties which consist of `plugins`, `rules` and `extend` (which in turn exports a config)
 
-**[CLICK HERE to read in details how to create a standard](https://github.com/anikethsaha/htmllinter/blob/master/docs/how-to-standard.md)**
+**[CLICK HERE to read in details how to create a shareable `config`](https://github.com/anikethsaha/htmllinter/blob/master/docs/how-to-shareable-config.md)**
 
 ## Contributing
 
