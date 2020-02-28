@@ -1,4 +1,3 @@
-
 <p align="center">
   
 <h1 align="center"> htmllinter </h1>
@@ -12,7 +11,6 @@
 <img alt="efba logo" src="https://imgur.com/9pWjH5N.png" width="350px" />
 
 </p>
-
 
 ## Table of Contents
 
@@ -36,7 +34,7 @@
 ## Installation
 
 ```shell
-$ npm install @htmllinter/core @htmllinter/basic-config --save-dev
+npm install @htmllinter/core @htmllinter/basic-config --save-dev
 ```
 
 #### About the packages
@@ -52,10 +50,22 @@ $ npm install @htmllinter/core @htmllinter/basic-config --save-dev
 
 `htmllinter` can be configured through a config file name `htmllinter.config.js` . Create this file in your project and follow [this guide](#config-file) to configure this file.
 
+Add `@htmllinter/basic-config` in your `htmllinter.config.js` in `extend` property
+
+`htmllinter.config.js`
+
+```js
+
+module.exports : {
+  extend : require('@htmllinter/basic-config')
+}
+
+```
+
 And now you are ready to lint your html files using the following commands
 
 ```shell
-$ htmllinter input.html
+htmllinter input.html
 ```
 
 in this command, if your `htmllinter.config.js` file is present at the directory from where this command is being run, then it will load that config file
@@ -67,7 +77,7 @@ You can find more about these patterns [**here**](https://github.com/isaacs/node
 You can use the `--config` or `-c` flag in order to specify the path to your `htmllinter.config.js` file. like this
 
 ```shell
-$ htmllinter input.html -c ./path/to/config/folder
+htmllinter input.html -c ./path/to/config/folder
 ```
 
 > Note that the path passed the `-c` or `--config` must be to a directory instead of pointing to the config file.
@@ -86,7 +96,7 @@ The CLI is one of the to run the `htmllinter`. It comes by default with `htmllit
 
 Usage :
 
-$ htmllinter <input> [Options]
+htmllinter <input> [Options]
 
 input           - it is the input(html) file name, it accepts glob pattern.
                 example :
@@ -104,9 +114,9 @@ Options
 
 Example
 
-    $ htmllinter input.html
-    $ htmllinter input -c ../
-    $ htmllinter **/*
+    htmllinter input.html
+    htmllinter input -c ../
+    htmllinter **/*
 
 ```
 
@@ -127,7 +137,7 @@ There are three properties this config file exports
 Type : `Object (modules)`
 Default : `none`
 
-This option extends the config which is passed here.  A shareable config package is like an usual `htmllinter.config.js`. They exports properties like `plugins` , `rules` and they can even extend other config in `extend` property
+This option extends the config which is passed here. A shareable config package is like an usual `htmllinter.config.js`. They exports properties like `plugins` , `rules` and they can even extend other config in `extend` property
 
 `htmllinter.config.js`
 
@@ -136,7 +146,6 @@ module.exports = {
   extend: require('@htmllinter/basic-config'),
 };
 ```
-
 
 **Learn more about creating your own [`shareable config rule packages here`]()**
 

@@ -1,22 +1,41 @@
-# @htmllinter/basic-standard
+# @htmllinter/basic-rules
 
-basic rules for `htmllinter` which are used to setting the standard/type using `standard` property of `htmllinter.config.js`
+this package contains rules for `htmllinter`
+Comes by default with `@htmllinter/basic-config`
 
-> latest version 0.0.1
+## Direct use as plugin
 
-## Installation
+### Installation
 
 ```shell
-$ npm install @htmllinter/core @htmllinter/basic-standard --save-dev
+npm install @htmllinter/core @htmllinter/basic-rules --save-dev
 ```
 
-## Usage
+### Usage
 
 in your `htmllinter.config.js` file
 
 ```js
 module.exports = {
-  standard: require('@htmllinter/basic-standard'),
+  plugins: [require('@htmllinter/basic-rules')],
+};
+```
+
+## Usage with `@htmllinter/basic-config`
+
+### Config Installation
+
+```shell
+npm install @htmllinter/core @htmllinter/basic-config --save-dev
+```
+
+### Config Usage
+
+in your `htmllinter.config.js` file
+
+```js
+module.exports = {
+  extend: [require('@htmllinter/basic-config')],
 };
 ```
 
