@@ -14,9 +14,12 @@ function Index() {
   const [linting, setLinting] = useState(false);
   const [configPanel, setConfigPanel] = useState(false);
   const [config, setConfig] = useState(initialConfig);
+  const [playgroundInfo, setPlaygroundInfo] = useState({});
   return (
     <AppContext.Provider
       value={{
+        playgroundInfo,
+        setPlaygroundInfo,
         config,
         setConfig,
         input,

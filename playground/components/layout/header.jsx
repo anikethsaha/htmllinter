@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { Pane, Button, Text, Heading, Link, Icon } from 'evergreen-ui';
+import { Pane, Button, Text, Heading, Link, Icon, Badge } from 'evergreen-ui';
 
 import RunButton from '../runButton';
 import { AppContext } from '../../context/AppContext';
+import fetch from 'isomorphic-unfetch';
 
 class Header extends Component {
   static contextType = AppContext;
   constructor(props) {
     super(props);
+  }
+  componentDidMount() {
+    fetch(
+      '//raw.githubusercontent.com/anikethsaha/htmllinter/master/playground/package.json'
+    )
+      .then((res) => res.json())
+      .then((pkg) => this.context.setPlaygroundInfo(pkg));
   }
 
   render() {
@@ -43,6 +51,9 @@ class Header extends Component {
             <Heading size={600} style={{ letterSpacing: '.1rem' }}>
               HtmlLinter PlayGround
             </Heading>
+            <Badge color="yellow" isSolid margin={10} marginY={15}>
+              <code>v{this.context.playgroundInfo.version || ''}</code>
+            </Badge>
           </Pane>
           <Pane flex={1} alignItems="center" display="flex">
             <RunButton />

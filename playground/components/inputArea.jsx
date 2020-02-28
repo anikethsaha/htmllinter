@@ -21,7 +21,7 @@ class InputArea extends Component {
           width: '100%',
         }}
       >
-        <Heading style={headingInsidePanel}>INPUT</Heading>
+        <Heading style={headingInsidePanel}>Input</Heading>
         <Pane
           height={'100%'}
           width={'100%'}

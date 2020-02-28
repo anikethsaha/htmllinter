@@ -1,4 +1,4 @@
-import { Pane, Heading, Small } from 'evergreen-ui';
+import { Pane, Heading } from 'evergreen-ui';
 import React, { Component } from 'react';
 import { headingInsidePanel } from './style';
 

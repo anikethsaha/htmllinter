@@ -31,7 +31,7 @@ const OutputArea = () => {
         width: '100%',
       }}
     >
-      <Heading style={headingInsidePanel}>OUTPUT</Heading>
+      <Heading style={headingInsidePanel}>Output</Heading>
       <Pane
         style={{ padding: '1rem' }}
         height={'100%'}
