@@ -24,9 +24,8 @@ const OutputArea = () => {
     <div
       style={{
         height: '100%',
-        background: 'white',
+        background: '#F4F5F7',
         borderRadius: '2px',
-        borderLeft: '5px solid #663399',
         borderTopLeftRadius: 0,
         borderBottomLeftRadius: 0,
         width: '100%',

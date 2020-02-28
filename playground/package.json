@@ -1,6 +1,6 @@
 {
   "name": "htmllinter-playground",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,9 @@
     "@htmllinter/basic-config": "^0.2.0",
     "@htmllinter/core": "^0.2.0",
     "evergreen-ui": "^4.23.0",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "^9.2.2",
+    "prismjs": "^1.19.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-json-view": "^1.19.1"

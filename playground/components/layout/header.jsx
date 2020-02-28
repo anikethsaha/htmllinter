@@ -7,6 +7,10 @@ import { AppContext } from '../../context/AppContext';
 
 class Header extends Component {
   static contextType = AppContext;
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <header>
@@ -18,7 +22,7 @@ class Header extends Component {
         <Pane
           display="flex"
           paddingX={16}
-          background="tint2"
+          background="#F4F5F7"
           borderRadius={3}
           style={{ height: 'inherit' }}
         >
@@ -27,7 +31,7 @@ class Header extends Component {
               marginRight={12}
               height={32}
               style={{
-                background: 'rebeccapurple',
+                background: '#0052cc',
                 color: 'white',
                 fontSize: '1rem',
               }}
@@ -50,7 +54,14 @@ class Header extends Component {
                   href="https://github.com/anikethsaha/htmllinter"
                   style={{ textDecoration: 'none' }}
                 >
-                  <Button marginRight={16} style={{ fontSize: '1rem' }}>
+                  <Button
+                    marginRight={16}
+                    style={{
+                      fontSize: '1rem',
+                      background: '#0052cc',
+                      color: 'white',
+                    }}
+                  >
                     Github
                   </Button>
                 </Link>

@@ -5,6 +5,7 @@ import { AppContext } from '../context/AppContext';
 import InputArea from './inputArea';
 import OutputArea from './outputArea';
 import ConfigPanel from './configPanel';
+import ConfigViewPanel from './configViewPanel';
 
 const Main = () => {
   const { setInput } = useContext(AppContext);
@@ -16,11 +17,20 @@ const Main = () => {
       <ConfigPanel />
       <Pane
         display="flex"
-        padding={16}
+        padding={0}
         style={{ height: '100%' }}
-        background="white"
+        background="#F4F5F7"
         borderRadius={3}
       >
+        <Pane
+          flex={1}
+          alignItems="center"
+          background="#F4F5F7"
+          style={{ height: '100%' }}
+          display="flex"
+        >
+          <ConfigViewPanel />
+        </Pane>
         <Pane
           flex={1}
           alignItems="center"
@@ -31,6 +41,7 @@ const Main = () => {
         </Pane>
         <Pane
           flex={1}
+          background="#F4F5F7"
           alignItems="center"
           style={{ height: '100%' }}
           display="flex"

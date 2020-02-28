@@ -10,11 +10,17 @@ class Body extends Component {
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>{this.props.title || 'htmllinter playground'}</title>
-
+          <link
+            href="https://fonts.googleapis.com/css?family=Kanit&display=swap"
+            rel="stylesheet"
+          />
           <script src="https://cdn.polyfill.io/v2/polyfill.min.js" />
         </Head>
         <body>
           <style jsx>{`
+            * {
+              font-family: 'Kanit' !important;
+            }
             body {
               margin: auto;
             }

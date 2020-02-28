@@ -13,9 +13,9 @@ class InputArea extends Component {
       <div
         style={{
           height: '100%',
-          background: 'white',
+          background: '#F4F5F7',
           borderRadius: '2px',
-          borderRight: '5px solid #663399',
+          borderRight: '5px solid #0052cc',
           borderTopRightRadius: 0,
           borderBottomRightRadius: 0,
           width: '100%',
@@ -35,7 +35,7 @@ class InputArea extends Component {
             width={'100%'}
             border={'none'}
             display="flex"
-            style={textAreaInsidePanel}
+            style={{ ...textAreaInsidePanel, background: '#F4F5F7' }}
             alignItems="center"
             justifyContent="center"
             onChange={this.props.handeInputChange}
