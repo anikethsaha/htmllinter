@@ -1,6 +1,6 @@
 {
-  "name": "@htmllinter/basic-standard",
-  "version": "0.0.2",
+  "name": "@htmllinter/basic-config",
+  "version": "0.0.1",
   "description": "basic standard for htmllinter used for setting the standard the config",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,8 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "@htmllinter/core": "^0.1.1"
+    "@htmllinter/core": "*",
+    "@htmllinter/basic-rules": "*"
   },
   "files": [
     "dist"
@@ -24,7 +25,6 @@
     "@rollup/plugin-node-resolve": "^7.1.1",
     "cross-env": "^7.0.0",
     "del-cli": "^3.0.0",
-    "execa": "^4.0.0",
     "rollup": "^1.31.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.2.0"

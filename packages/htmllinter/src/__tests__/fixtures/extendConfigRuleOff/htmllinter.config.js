@@ -1,5 +1,5 @@
 module.exports = {
-  standard: require('../../../../../basic-standard'),
+  extend: require('../../../../../basic-config'),
   plugins: [],
   rules: {
     'no-empty-tag': 'off',

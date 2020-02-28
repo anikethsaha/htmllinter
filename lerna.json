@@ -1,5 +1,4 @@
 {
-  "npmClient": "yarn",
   "command": {
     "publish": {
       "ignoreChanges": ["package-lock.json"]
