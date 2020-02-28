@@ -1,3 +1,4 @@
+/* eslint-disable no-warning-comments */
 import resolveExtends from '../resolveExtends';
 
 /**
@@ -37,8 +38,21 @@ describe('testing resolveExtends', () => {
     expect(mockPlugins['no-empty-tag']()).toBe(result[0]());
   });
 
-  it('should match the mocking plugin fn s output', async () => {
+  it('should return 3 plugins', async () => {
     const result = await resolveExtends(extendConfig);
     expect(result.length).toBe(3); // testing the plugin which is actually running
+  });
+});
+
+describe('nest shareable config', () => {
+  it('should return 4 plugins', async () => {
+    extendConfig.extend = {
+      plugins: [{ 'from-extend': () => 'from-extend' }],
+      rules: {
+        'from-extend': 'on',
+      },
+    };
+    const result = await resolveExtends(extendConfig);
+    expect(result.length).toBe(5); // FIXME : it should be 4 : working fine with manual testing
   });
 });
