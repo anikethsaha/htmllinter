@@ -198,6 +198,7 @@ module.exports = {
   },
 };
 ```
+[**CLICK HERE to know more about sharing data from config to rule's options**](https://github.com/anikethsaha/htmllinter/blob/master/docs/pass-data-from-config-to-rule.md)
 
 ## Rules
 
