@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`running the htmllinter.run api with config data sharing should return linting errors [no-bool-true-explicit-define] 1`] = `"DATA FROM 'htmllinter.config.js is : {\\"stringType\\":\\"string\\",\\"arrayType\\":[],\\"arrayOfString\\":[\\"string\\"],\\"objectType\\":{}}"`;

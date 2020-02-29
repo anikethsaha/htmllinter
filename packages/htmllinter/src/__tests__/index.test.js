@@ -29,9 +29,10 @@ describe('running the htmllinter.run api with config', () => {
   describe('extend', () => {
     it('should return linting data', async () => {
       const config = {
-        extend: require('../../../basic-config'),
+        extend: require('./utils/basic-config-extend'),
       };
       const result = await run(html, config);
+
       expect(typeof result).toBe('object');
       expect(result.length).toBe(3);
       let ruleNames = [];
@@ -99,6 +100,28 @@ describe('running the htmllinter.run api with config', () => {
         ruleNames.push(res.ruleName);
       });
       expect(ruleNames.sort()).toEqual(['no-bool-true-explicit-define']);
+    });
+  });
+
+  describe('data sharing', () => {
+    it('should return linting errors [no-bool-true-explicit-define]', async () => {
+      const input = `<a enable="true"></a>`;
+      const data = {
+        stringType: 'string',
+        arrayType: [],
+        arrayOfString: ['string'],
+        objectType: {},
+      };
+      const config = {
+        plugins: [require('./utils/exampleDataFromOptionPlugin')],
+        rules: {
+          'no-bool-true-explicit-define-data-sharing': ['on', data],
+        },
+      };
+      const result = await run(input, config);
+      expect(typeof result).toBe('object');
+      expect(result.length).toBe(1);
+      expect(result[0].msg).toMatchSnapshot();
     });
   });
 });

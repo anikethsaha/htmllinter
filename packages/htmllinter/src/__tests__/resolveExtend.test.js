@@ -56,3 +56,24 @@ describe('nest shareable config', () => {
     expect(result.length).toBe(5); // FIXME : it should be 4 : working fine with manual testing
   });
 });
+
+describe('data sharing plugin inside extend config', () => {
+  it('shoudl return data field', async () => {
+    const emptyExtendConfig = {};
+    const data = { hello: 'htmllinter' };
+    const rule = (options) => () => 'from-extend' + JSON.stringify(options);
+    emptyExtendConfig.extend = {
+      plugins: [
+        {
+          'from-extend': rule,
+        },
+      ],
+      rules: {
+        'from-extend': ['on', data],
+      },
+    };
+    const result = await resolveExtends(emptyExtendConfig, {});
+    expect(result[0].data).toBe(data);
+    expect(rule('someOptions')()).toBe(result[0].rule('someOptions')());
+  });
+});

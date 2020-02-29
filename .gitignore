@@ -23,3 +23,7 @@ _webpackOutput
 
 
 # local tests
+
+
+/htmllinter.config.js
+/input.html

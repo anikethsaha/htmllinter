@@ -36,3 +36,17 @@ describe('resolveExternalPlugins', () => {
     expect(result.length).toBe(1);
   });
 });
+
+describe('data sharing', () => {
+  it('should  return the same data', async () => {
+    const data = { hello: 'htmllinter' };
+    const result = await resolveExternalPlugins(
+      [require('./utils/examplePlugin')],
+      {
+        'no-bool-true-explicit-define': ['on', data],
+      }
+    );
+    expect(result.length).toBe(1);
+    expect(result[0].data).toBe(data);
+  });
+});

@@ -5,7 +5,7 @@ import resolveExtends from './resolveExtends';
 import resolveExternalPlugins from './resolveExternalPlugins';
 
 export const run = (html = '', config = {}) => {
-  const plugins = [helperPluginStart];
+  const plugins = [];
   if (config.extend) {
     if (
       typeof config.extend !== 'function' &&
@@ -38,7 +38,15 @@ export const run = (html = '', config = {}) => {
 
   let lintingData = [];
 
-  return posthtml(plugins)
+  const posthtmlReadyPlugins = plugins.map((plugin) => {
+    if (typeof plugin.data !== 'undefined') {
+      return plugin.rule(plugin.data);
+    } else {
+      return plugin;
+    }
+  });
+
+  return posthtml([helperPluginStart].concat(posthtmlReadyPlugins))
     .process(html)
     .then((result) => {
       let lintingMsgs;
@@ -54,7 +62,6 @@ export const run = (html = '', config = {}) => {
           lintingData.push({ msg, ruleName }); // using array as it will be easy to create table
         });
       });
-
       return lintingData;
     });
 };

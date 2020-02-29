@@ -11,6 +11,7 @@ const rule = function(options = {}, reporter = [], reportNode = []) {
     tree.walk((node) => {
       if (node.tag && Object.keys(docTagCount).includes(node.tag)) {
         docTagCount[node.tag] += 1;
+
         if (docTagCount[node.tag] > 1) {
           reporter.push(
             `the tag ${node.tag} is used ${

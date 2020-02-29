@@ -1,5 +1,8 @@
+import getCompatiblePlugin from './utils/getCompatiblePlugin';
+
 export default (plugins, configRules) => {
   let pluginsToRet = [];
+
   plugins.map((plugin) => {
     Object.keys(plugin)
       .filter((pluginRule) => {
@@ -20,6 +23,9 @@ export default (plugins, configRules) => {
       .filter((pluginRule) => {
         const rule = configRules[pluginRule];
         if (typeof rule === 'object') {
+          if (rule[0] === 'off') {
+            return false;
+          }
           return true;
         }
         if (typeof rule === 'string' && rule === 'off') {
@@ -29,7 +35,23 @@ export default (plugins, configRules) => {
       })
       .map((pluginRule) => {
         if (plugin[pluginRule]) {
-          pluginsToRet.push(plugin[pluginRule]);
+          const rule = configRules[pluginRule];
+          if (typeof rule === 'object') {
+            /**
+             * rule[0] : 'on' || 'off'
+             * rule[1] : the whole data which needs to be passed.
+             * just simply pass it as it is
+             */
+            if (rule[1] && rule.length > 1) {
+              pluginsToRet.push({ rule: plugin[pluginRule], data: rule[1] });
+            } else {
+              const pluginToAdd = getCompatiblePlugin(plugin[pluginRule]);
+              pluginsToRet.push(pluginToAdd);
+            }
+          } else {
+            const pluginToAdd = getCompatiblePlugin(plugin[pluginRule]);
+            pluginsToRet.push(pluginToAdd);
+          }
         }
       });
   });
