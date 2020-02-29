@@ -34,15 +34,15 @@ export default class Footer extends Component {
               <Brk />
               <Code>htmllinter</Code> packages:{' '}
               <Link href="https://github.com/anikethsaha/htmllinter">
-                @htmllinter/core <Code>v0.2.0</Code>
+                @htmllinter/core <Code>v0.3.0</Code>
               </Link>
               <Brk />
               <Link href="https://github.com/anikethsaha/htmllinter">
-                @htmllinter/basic-config <Code>v0.2.0</Code>
+                @htmllinter/basic-config <Code>v0.3.0</Code>
               </Link>
               <Brk />
               <Link href="https://github.com/anikethsaha/htmllinter">
-                @htmllinter/basic-rules <Code>v0.2.0</Code>
+                @htmllinter/basic-rules <Code>v0.3.0</Code>
               </Link>
             </Text>
           </Pane>

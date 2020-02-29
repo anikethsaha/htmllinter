@@ -928,10 +928,10 @@
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.7.4.tgz#f14932887422c9056b15a8d222a9074a7dfa2831"
   integrity sha512-fxfMSBMX3tlIbKUdtGKxqB1fyrH6gVrX39Gsv3y8lRYKUqlgDt3UMqQyGnR1bQMa2B8aGnhLZokZgg8vT0Le+A==
 
-"@htmllinter/basic-config@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@htmllinter/basic-config/-/basic-config-0.2.0.tgz#b65119edfa03d6771c2bfbf9fe7305ff45350a7a"
-  integrity sha512-LvYDY2gSWIBBBP/1fH2Mb6daUHKv1JkFEd1jzIinXpL85VoUVP2I1c5TyNarPamgyA5RIUiYBJtSvQWKELrqvQ==
+"@htmllinter/basic-config@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@htmllinter/basic-config/-/basic-config-0.3.0.tgz#fae395cd6cafe6ef82fc7d632ab52ea3a30aa446"
+  integrity sha512-rCQFIi1HHt6avrcxx6uTosT0MfwDDZ3xJx2K2M0FjW7W95x0vE+0iwZpsfFmdDeE7bpE0tRjblsyoTLLBZxeFw==
   dependencies:
     "@htmllinter/basic-rules" "*"
     "@htmllinter/core" "*"
@@ -943,10 +943,20 @@
   dependencies:
     "@htmllinter/core" "*"
 
-"@htmllinter/core@*", "@htmllinter/core@^0.2.0":
+"@htmllinter/core@*":
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/@htmllinter/core/-/core-0.2.0.tgz#54b279fe18d906cae391b0fa581ceac3d5871d76"
   integrity sha512-koVQfRS9F/J5FQJWgzv4x5rI3TzpLEEcJqNsjHDgR2Uqwz2RYe5IvJ7rlV4ZSb0PwJ7Z45oYf4ZA7OGYFJ6bnA==
+  dependencies:
+    chalk "^3.0.0"
+    cli-table3 "^0.5.1"
+    glob "^7.1.6"
+    posthtml "^0.12.0"
+
+"@htmllinter/core@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@htmllinter/core/-/core-0.3.0.tgz#43a6961b92b1f5ebecf1112ba821a184facc0d62"
+  integrity sha512-WEpO/aCXyVRW21PV4RAT3islOk9mJB8w/lfRrt4Sk919BbIuEIQ9alT49HdozpdLnf31EStluRMr6tokmxSGdw==
   dependencies:
     chalk "^3.0.0"
     cli-table3 "^0.5.1"
