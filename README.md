@@ -21,7 +21,7 @@
   - [Usage](#usage-1)
 - [Node API](#node-api)
 - [Config File](#config-file)
-  - [1. `standard`](#1-config)
+  - [1. `extend`](#1-extend)
   - [2. `plugins`](#2-plugins)
   - [2. `rules`](#2-rules)
 - [Rules](#rules)
@@ -30,6 +30,8 @@
 - [Contributing](#contributing)
 - [Note](#note)
 - [Inspiration/Thanks](#inspirationthanks)
+
+> Before we begin, in the docs whenever you read about custom rules and plugins, its basically same but sometimes, a plugin can have more have one rule definition. so we can say sometimes plugins is a rule or can say a plugin has group of rules. it doesnt matter once it goes through `htmllinter` as there, everything is a `function` to run !
 
 ## Installation
 
