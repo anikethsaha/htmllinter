@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { Pane, Button, Text, Heading } from 'evergreen-ui';
+import { Pane } from 'evergreen-ui';
 import { AppContext } from '../context/AppContext';
 import InputArea from './inputArea';
 import OutputArea from './outputArea';
-import ConfigPanel from './configPanel';
-import ConfigViewPanel from './configViewPanel';
+import ConfigViewPanel from './controller';
 import styled, { withTheme } from 'styled-components';
 import ControlPanel from './controlPanel';
 
@@ -24,7 +23,6 @@ const Main = ({ ...props }) => {
   };
   return (
     <Section>
-      <ConfigPanel />
       <Pane
         display="flex"
         padding={0}

@@ -5,5 +5,5 @@ module.exports = {
   bg: 'rgb(244, 245, 247)',
   btnTextColor: 'white',
   fontSize: '1rem',
-  toolboxHeading: '#dedfdf',
+  secondaryBg: '#dedfdf',
 };

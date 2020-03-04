@@ -18,6 +18,8 @@ const Container = styled.div`
 function Index() {
   const initialConfig = {
     extend: basicConfig,
+    plugins: [],
+    rules: {},
   };
   const [input, setInput] = useState('');
   const [lintingTree, setLintingTree] = useState([]);
@@ -25,9 +27,13 @@ function Index() {
   const [configPanel, setConfigPanel] = useState(false);
   const [config, setConfig] = useState(initialConfig);
   const [playgroundInfo, setPlaygroundInfo] = useState({});
+  const [controllerItem, setControllerItem] = useState('configView');
+
   return (
     <AppContext.Provider
       value={{
+        controllerItem,
+        setControllerItem,
         playgroundInfo,
         setPlaygroundInfo,
         config,

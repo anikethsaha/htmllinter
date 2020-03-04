@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components';
 // import styled from 'styled-components';
 import { run } from '@htmllinter/core';
 import { ActionButton } from './style';
-import { TiMediaPlay } from 'react-icons/ti';
+import { FiPlay } from 'react-icons/fi';
 
 const RunButton = () => {
   const { input, setLintingTree, setLinting, config } = useContext(AppContext);
@@ -20,7 +20,7 @@ const RunButton = () => {
 
   return (
     <ActionButton onClick={transformCode}>
-      <TiMediaPlay />
+      <FiPlay />
     </ActionButton>
   );
 };

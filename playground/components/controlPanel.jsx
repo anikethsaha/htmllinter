@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { Pane, Icon, Tooltip } from 'evergreen-ui';
+import { Pane, Tooltip } from 'evergreen-ui';
 import { withTheme } from 'styled-components';
 import FlexedBtn from './flexedBtn';
 import { AppContext } from '../context/AppContext';
+import { FaRegEdit } from 'react-icons/fa';
+import { FiCode } from 'react-icons/fi';
 
 class controlPanel extends Component {
   static contextType = AppContext;
@@ -25,12 +27,27 @@ class controlPanel extends Component {
             background: 'transparent',
             color: theme.textColor,
             boxShadow: 'none',
-            margin: 'auto',
+            margin: '1rem auto 0',
+            fontSize: '1.5rem',
           }}
-          onClickHandler={() => this.context.setConfigPanel(true)}
+          onClickHandler={() => this.context.setControllerItem('configEdit')}
         >
           <Tooltip content="Edit linter config">
-            <Icon icon="settings" margin={5} />
+            <FaRegEdit />
+          </Tooltip>
+        </FlexedBtn>
+        <FlexedBtn
+          styling={{
+            background: 'transparent',
+            color: theme.textColor,
+            boxShadow: 'none',
+            margin: '1rem auto 0',
+            fontSize: '1.5rem',
+          }}
+          onClickHandler={() => this.context.setControllerItem('configView')}
+        >
+          <Tooltip content="Show Current config">
+            <FiCode margin={5} />
           </Tooltip>
         </FlexedBtn>
       </Pane>

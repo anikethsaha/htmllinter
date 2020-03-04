@@ -6,7 +6,7 @@ export const ToolboxHeading = styled.div`
   flex-shrink: 0;
   height: 1.5rem;
   overflow: hidden;
-  background: ${(props) => props.theme.toolboxHeading};
+  background: ${(props) => props.theme.secondaryBg};
   padding: 0.5rem 1rem;
 `;
 

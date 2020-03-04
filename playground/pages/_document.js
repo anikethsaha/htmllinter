@@ -28,7 +28,6 @@ class MyDocument extends Document {
   }
 
   render() {
-    console.log('this.props', this.props);
     return (
       <Html>
         <Head>
