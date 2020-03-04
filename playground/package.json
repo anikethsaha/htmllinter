@@ -25,6 +25,7 @@
     "react-codemirror": "^1.0.0",
     "react-container-dimensions": "^1.4.1",
     "react-dom": "^16.13.0",
+    "react-icons": "^3.9.0",
     "react-json-view": "^1.19.1",
     "styled-components": "^5.0.1"
   },

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 // eslint-disable-next-line no-unused-vars
-import { Pane, Text } from 'evergreen-ui';
+import { Pane, Text, Heading } from 'evergreen-ui';
 import { AppContext } from '../context/AppContext';
 import { ToolboxHeading, textAreaInsidePanel } from './style';
 
@@ -31,7 +31,14 @@ const OutputArea = ({ ...props }) => {
         width: '100%',
       }}
     >
-      <ToolboxHeading>Output</ToolboxHeading>
+      <ToolboxHeading>
+        <Heading
+          size={600}
+          style={{ lineHeight: '1rem', display: 'flex', flexGrow: 2 }}
+        >
+          Output
+        </Heading>
+      </ToolboxHeading>
       <Pane
         style={{ padding: '1rem' }}
         height={'100%'}

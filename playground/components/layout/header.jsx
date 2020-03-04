@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
+import { FaGithub, FaTwitter } from 'react-icons/fa';
+
 // eslint-disable-next-line no-unused-vars
 import { Pane, Button, Text, Heading, Link, Icon, Badge } from 'evergreen-ui';
 
-import RunButton from '../runButton';
 import { AppContext } from '../../context/AppContext';
 import fetch from 'isomorphic-unfetch';
 import styled, { withTheme } from 'styled-components';
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  margin: auto 1rem;
+`;
+
 const StyledHeader = styled.header`
-  height: 3rem;
+  height: 2rem;
   width: 100%;
   display: flex;
   flex-shrink: 0;
@@ -46,27 +52,16 @@ class Header extends Component {
               <code>v{this.context.playgroundInfo.version || ''}</code>
             </Badge>
           </Pane>
-          <Pane flex={1} alignItems="center" display="flex">
-            <RunButton />
-          </Pane>
+
           <Pane>
             <Pane>
               <Pane flex={1} alignItems="center" padding={8} display="flex">
-                <Link
-                  href="https://github.com/anikethsaha/htmllinter"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <Button
-                    marginRight={16}
-                    style={{
-                      fontSize: theme.fontSize,
-                      background: theme.primary,
-                      color: theme.btnTextColor,
-                    }}
-                  >
-                    Github
-                  </Button>
-                </Link>
+                <StyledLink href="https://github.com/anikethsaha/htmllinter">
+                  <FaGithub />
+                </StyledLink>
+                <StyledLink href="https://twitter.com/__ANIX__">
+                  <FaTwitter />
+                </StyledLink>
               </Pane>
               {/* Below you can see the marginRight property on a Button. */}
             </Pane>

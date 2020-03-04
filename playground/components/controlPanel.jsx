@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pane, Icon } from 'evergreen-ui';
+import { Pane, Icon, Tooltip } from 'evergreen-ui';
 import { withTheme } from 'styled-components';
 import FlexedBtn from './flexedBtn';
 import { AppContext } from '../context/AppContext';
@@ -29,7 +29,9 @@ class controlPanel extends Component {
           }}
           onClickHandler={() => this.context.setConfigPanel(true)}
         >
-          <Icon icon="settings" margin={5} />
+          <Tooltip content="Edit linter config">
+            <Icon icon="settings" margin={5} />
+          </Tooltip>
         </FlexedBtn>
       </Pane>
     );

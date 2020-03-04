@@ -1,4 +1,4 @@
-import { Pane } from 'evergreen-ui';
+import { Pane, Heading } from 'evergreen-ui';
 import React, { Component } from 'react';
 import { ToolboxHeading } from './style';
 
@@ -31,7 +31,14 @@ class ConfigViewPanel extends Component {
           width: '100%',
         }}
       >
-        <ToolboxHeading>Config </ToolboxHeading>
+        <ToolboxHeading>
+          <Heading
+            size={600}
+            style={{ lineHeight: '1rem', display: 'flex', flexGrow: 2 }}
+          >
+            Config
+          </Heading>
+        </ToolboxHeading>
 
         <Pane
           height={'100%'}

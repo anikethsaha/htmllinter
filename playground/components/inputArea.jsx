@@ -1,11 +1,13 @@
 // eslint-disable-next-line no-unused-vars
-import { Pane } from 'evergreen-ui';
+import { Pane, Heading } from 'evergreen-ui';
 import React, { Component } from 'react';
+
 import { AppContext } from '../context/AppContext';
 
 import CodeMirror from 'react-codemirror';
 import { ToolboxHeading } from './style';
 import styled, { withTheme } from 'styled-components';
+import RunButton from './runButton';
 
 const Editor = styled(CodeMirror)`
   background: ${(props) => props.theme.bg};
@@ -39,7 +41,16 @@ class InputArea extends Component {
           width: '100%',
         }}
       >
-        <ToolboxHeading>Input</ToolboxHeading>
+        <ToolboxHeading>
+          <Heading
+            size={600}
+            style={{ lineHeight: '1rem', display: 'flex', flexGrow: 2 }}
+          >
+            Input
+          </Heading>
+          <RunButton />
+        </ToolboxHeading>
+
         <Pane
           height={'100%'}
           width={'100%'}
