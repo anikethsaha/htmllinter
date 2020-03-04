@@ -52,8 +52,8 @@ const runCli = async (cb) => {
       info(` Checking ${ipFileName} \n`);
 
       const html = readFileSync(join(process.cwd(), ipFileName), 'utf8');
-      const lintData = await run(html, config);
-      if (lintData.length === 0) {
+      const lintDatas = await run(html, config);
+      if (lintDatas.length === 0) {
         console.log('\n');
         success(`0 errors found for file ${ipFileName}\n`);
       } else {
@@ -61,9 +61,9 @@ const runCli = async (cb) => {
          * Its enough to get the signal even  if any one of
          * the file is having linting issues
          */
-        isError = true;
+        isError = lintDatas.some((lintData) => lintData.type === 'error');
       }
-      createTable(lintData, ipFileName);
+      createTable(lintDatas, ipFileName);
       if (i === matches.length - 1 && cb) {
         cb(isError);
       }
@@ -81,9 +81,19 @@ runCli((isErr) => {
 
 const createTable = (datas, ipFileName = null) => {
   console.log('\n', chalk.yellow(`Output for filename : ${ipFileName} \n`));
+
   let table = new Table({
-    head: ['Message', 'Rule Name'],
+    head: ['Message', 'Rule Name', 'type'].map((e) => chalk.redBright(e)),
   });
-  datas.forEach((data) => table.push([data.msg, data.ruleName]));
+
+  datas.forEach((data) =>
+    data.type === 'error'
+      ? table.push(
+          [data.msg, data.ruleName, data.type].map((e) => chalk.yellowBright(e))
+        )
+      : table.push(
+          [data.msg, data.ruleName, data.type].map((e) => chalk.red(e))
+        )
+  );
   console.log(table.toString());
 };
