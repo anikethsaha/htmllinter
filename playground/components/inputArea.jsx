@@ -1,19 +1,37 @@
 // eslint-disable-next-line no-unused-vars
-import { Pane, Textarea, Heading, Code } from 'evergreen-ui';
+import { Pane } from 'evergreen-ui';
 import React, { Component } from 'react';
-import { headingInsidePanel, textAreaInsidePanel } from './style';
+import { AppContext } from '../context/AppContext';
+
+import CodeMirror from 'react-codemirror';
+import { ToolboxHeading } from './style';
+import styled, { withTheme } from 'styled-components';
+
+const Editor = styled(CodeMirror)`
+  background: ${(props) => props.theme.bg};
+  height: 100%;
+  width: 100%;
+  border: none;
+  box-shadow: 'none';
+  font-size: ${(props) => props.theme.fontSize};
+`;
 
 class InputArea extends Component {
+  static contextType = AppContext;
   constructor(props) {
     super(props);
   }
 
   render() {
+    const options = {
+      lineNumbers: true,
+      mode: 'htmlmixed',
+    };
     return (
       <div
         style={{
           height: '100%',
-          background: '#F4F5F7',
+          background: this.props.theme.bg,
           borderRadius: '2px',
           borderRight: '5px solid #0052cc',
           borderTopRightRadius: 0,
@@ -21,7 +39,7 @@ class InputArea extends Component {
           width: '100%',
         }}
       >
-        <Heading style={headingInsidePanel}>Input</Heading>
+        <ToolboxHeading>Input</ToolboxHeading>
         <Pane
           height={'100%'}
           width={'100%'}
@@ -29,16 +47,12 @@ class InputArea extends Component {
           alignItems="center"
           justifyContent="center"
         >
-          <Textarea
-            id="textarea-2"
-            height={'100%'}
-            width={'100%'}
-            border={'none'}
-            display="flex"
-            style={{ ...textAreaInsidePanel, background: '#F4F5F7' }}
+          <Editor
+            value={this.context.input || ''}
             alignItems="center"
             justifyContent="center"
-            onChange={this.props.handeInputChange}
+            onChange={(val) => this.context.setInput(val)}
+            options={options}
           />
         </Pane>
       </div>
@@ -46,4 +60,4 @@ class InputArea extends Component {
   }
 }
 
-export default InputArea;
+export default withTheme(InputArea);

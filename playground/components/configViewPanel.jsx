@@ -1,24 +1,29 @@
-import { Pane, Heading } from 'evergreen-ui';
+import { Pane } from 'evergreen-ui';
 import React, { Component } from 'react';
-import { headingInsidePanel } from './style';
+import { ToolboxHeading } from './style';
 
 import dynamic from 'next/dynamic';
 import { AppContext } from '../context/AppContext';
+import { withTheme } from 'styled-components';
+
 // Transform the input here and show the metadata about the input
 
 const ReactJson = dynamic(() => import('react-json-view'), {
   ssr: false,
 });
 
-export default class ConfigViewPanel extends Component {
+class ConfigViewPanel extends Component {
   static contextType = AppContext;
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
       <div
         style={{
           height: '100%',
-          background: '#F4F5F7',
+          background: this.props.theme.bg,
           borderRadius: '2px',
           borderRight: '5px solid #0052cc',
           borderTopRightRadius: 0,
@@ -26,7 +31,8 @@ export default class ConfigViewPanel extends Component {
           width: '100%',
         }}
       >
-        <Heading style={headingInsidePanel}>Config </Heading>
+        <ToolboxHeading>Config </ToolboxHeading>
+
         <Pane
           height={'100%'}
           width={'100%'}
@@ -44,3 +50,5 @@ export default class ConfigViewPanel extends Component {
     );
   }
 }
+
+export default withTheme(ConfigViewPanel);

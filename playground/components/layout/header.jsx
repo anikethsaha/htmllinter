@@ -5,6 +5,14 @@ import { Pane, Button, Text, Heading, Link, Icon, Badge } from 'evergreen-ui';
 import RunButton from '../runButton';
 import { AppContext } from '../../context/AppContext';
 import fetch from 'isomorphic-unfetch';
+import styled, { withTheme } from 'styled-components';
+
+const StyledHeader = styled.header`
+  height: 3rem;
+  width: 100%;
+  display: flex;
+  flex-shrink: 0;
+`;
 
 class Header extends Component {
   static contextType = AppContext;
@@ -20,34 +28,17 @@ class Header extends Component {
   }
 
   render() {
+    const { theme } = this.props;
     return (
-      <header>
-        <style jsx>{`
-          header {
-            height: 3rem;
-          }
-        `}</style>
+      <StyledHeader>
         <Pane
           display="flex"
           paddingX={16}
-          background="#F4F5F7"
+          background={theme.bg}
           borderRadius={3}
-          style={{ height: 'inherit' }}
+          style={{ height: 'inherit', width: '100%' }}
         >
           <Pane flex={1} alignItems="center" display="flex">
-            <Button
-              marginRight={12}
-              height={32}
-              style={{
-                background: '#0052cc',
-                color: 'white',
-                fontSize: '1rem',
-              }}
-              onClick={() => this.context.setConfigPanel(true)}
-            >
-              <Icon icon="settings" margin={5} />
-              Edit Config
-            </Button>
             <Heading size={600} style={{ letterSpacing: '.1rem' }}>
               HtmlLinter PlayGround
             </Heading>
@@ -68,9 +59,9 @@ class Header extends Component {
                   <Button
                     marginRight={16}
                     style={{
-                      fontSize: '1rem',
-                      background: '#0052cc',
-                      color: 'white',
+                      fontSize: theme.fontSize,
+                      background: theme.primary,
+                      color: theme.btnTextColor,
                     }}
                   >
                     Github
@@ -81,9 +72,9 @@ class Header extends Component {
             </Pane>
           </Pane>
         </Pane>
-      </header>
+      </StyledHeader>
     );
   }
 }
 
-export default Header;
+export default withTheme(Header);

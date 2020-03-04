@@ -6,51 +6,62 @@ import InputArea from './inputArea';
 import OutputArea from './outputArea';
 import ConfigPanel from './configPanel';
 import ConfigViewPanel from './configViewPanel';
+import styled, { withTheme } from 'styled-components';
+import ControlPanel from './controlPanel';
 
-const Main = () => {
+const Section = styled.section`
+  width: 100%;
+  display: flex;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  position: relative;
+`;
+
+const Main = ({ ...props }) => {
   const { setInput } = useContext(AppContext);
   const handeInputChange = (event) => {
     setInput(event.target.value);
   };
   return (
-    <section style={{ height: '100%', position: 'absolute', width: '100%' }}>
+    <Section>
       <ConfigPanel />
       <Pane
         display="flex"
         padding={0}
-        style={{ height: '100%' }}
-        background="#F4F5F7"
+        background={props.theme.bg}
         borderRadius={3}
+        style={{ width: '100%' }}
       >
         <Pane
           flex={1}
           alignItems="center"
-          background="#F4F5F7"
-          style={{ height: '100%' }}
+          background={props.theme.bg}
+          display="flex"
+        >
+          <ControlPanel />
+        </Pane>
+        <Pane
+          flex={7}
+          alignItems="center"
+          background={props.theme.bg}
           display="flex"
         >
           <ConfigViewPanel />
         </Pane>
-        <Pane
-          flex={1}
-          alignItems="center"
-          style={{ height: '100%' }}
-          display="flex"
-        >
+        <Pane flex={7} alignItems="center" display="flex">
           <InputArea handeInputChange={handeInputChange} />
         </Pane>
         <Pane
-          flex={1}
-          background="#F4F5F7"
+          flex={7}
+          background={props.theme.bg}
           alignItems="center"
-          style={{ height: '100%' }}
           display="flex"
         >
           <OutputArea />
         </Pane>
       </Pane>
-    </section>
+    </Section>
   );
 };
 
-export default Main;
+export default withTheme(Main);
