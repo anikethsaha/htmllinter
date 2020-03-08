@@ -230,6 +230,8 @@ A shareable `config` is nothing by a module exporting a `htmllinter` config prop
 
 ## Contributing
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/anikethsaha/htmllinter)
+
 Feel free to submit PR with new features, bug fixes, docs update and other changes you think needs to be done.
 Also, submit an issue if you think needs to be corrected or implemented or needs a discussion
 
