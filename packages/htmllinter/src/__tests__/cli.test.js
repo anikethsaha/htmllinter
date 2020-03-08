@@ -86,7 +86,9 @@ describe('Testing CLI behavior', () => {
       ]);
 
       expect(result.exitCode).toBe(0);
-      expect(result.stdout.toString()).toMatchSnapshot('default config no error');
+      expect(result.stdout.toString()).toMatchSnapshot(
+        'default config no error'
+      );
     });
   });
 
@@ -139,7 +141,9 @@ describe('Testing CLI behavior', () => {
       const pattern = './fixtures/extendConfigRuleOff/input.html';
       const result = run(__dirname, [pattern, '-c', configFilePath]);
       expect(result.exitCode).toBe(1);
-      expect(result.stdout.toString()).toMatchSnapshot('standard config rule off');
+      expect(result.stdout.toString()).toMatchSnapshot(
+        'standard config rule off'
+      );
     });
 
     it('should not show the linting errors  ( htmllinter.config.js present) as non-Error files ', () => {
@@ -151,7 +155,9 @@ describe('Testing CLI behavior', () => {
         configFilePath,
       ]);
       expect(result.exitCode).toBe(0);
-      expect(result.stdout.toString()).toMatchSnapshot('standard config rule off');
+      expect(result.stdout.toString()).toMatchSnapshot(
+        'standard config rule off'
+      );
     });
   });
 });
