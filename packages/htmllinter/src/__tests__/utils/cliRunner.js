@@ -4,11 +4,13 @@ import execa from 'execa';
 
 const { sync: spSync } = execa;
 
-const cliPath = path.resolve(__dirname, '../../../bin/htmllinter.js');
+const cliPath = require.resolve(
+  path.resolve(__dirname, '../../../bin/htmllinter.js')
+);
 
 export const run = (testCase, args = []) => {
   const cwd = path.resolve(testCase);
-  const result = spSync(cliPath, args, {
+  const result = spSync('node', [cliPath, ...args], {
     cwd: cwd,
     reject: false,
     stdio: 'pipe',

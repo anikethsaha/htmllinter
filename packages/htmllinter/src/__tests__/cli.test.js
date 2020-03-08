@@ -10,7 +10,7 @@ describe('Testing CLI behavior', () => {
         `[HTMLLINTER]: no argument passed. Please provide the input file(s) atleast`
       );
 
-      expect(result.stdout).toMatchSnapshot('help');
+      expect(result.stdout.toString()).toMatchSnapshot('help');
     });
 
     it('should show help when when non-existing input is passed with proper err message', () => {
@@ -20,7 +20,7 @@ describe('Testing CLI behavior', () => {
         `[HTMLLINTER]: no file found with input pattern : ${inputFileName}`
       );
       expect(result.exitCode).toBe(0);
-      expect(result.stdout).toMatchSnapshot('help');
+      expect(result.stdout.toString()).toMatchSnapshot('help');
     });
 
     it('should show message when wrong pattern is pass', () => {
@@ -42,7 +42,7 @@ describe('Testing CLI behavior', () => {
       expect(errArr).toContain('Cannot');
       expect(errArr).toContain('find');
       expect(errArr).toContain('module');
-      expect(result.stdout).toMatchSnapshot(
+      expect(result.stdout.toString()).toMatchSnapshot(
         'Output for loading default config { }'
       );
       expect(result.exitCode).toBe(0);
@@ -61,7 +61,7 @@ describe('Testing CLI behavior', () => {
       expect(errArr).toContain('Cannot');
       expect(errArr).toContain('find');
       expect(errArr).toContain('module');
-      expect(result.stdout).toMatchSnapshot(
+      expect(result.stdout.toString()).toMatchSnapshot(
         'Output for loading default config { }'
       );
       expect(result.exitCode).toBe(0);
@@ -76,7 +76,7 @@ describe('Testing CLI behavior', () => {
       ]);
 
       expect(result.exitCode).toBe(1);
-      expect(result.stdout).toMatchSnapshot('default config');
+      expect(result.stdout.toString()).toMatchSnapshot('default config');
     });
 
     it('should not throw error, load default config (htmllinter.config.js is present) when no config arg is passed   : no-error', () => {
@@ -86,7 +86,9 @@ describe('Testing CLI behavior', () => {
       ]);
 
       expect(result.exitCode).toBe(0);
-      expect(result.stdout).toMatchSnapshot('default config no error');
+      expect(result.stdout.toString()).toMatchSnapshot(
+        'default config no error'
+      );
     });
   });
 
@@ -98,7 +100,7 @@ describe('Testing CLI behavior', () => {
       expect(errArr).toContain('Cannot');
       expect(errArr).toContain('find');
       expect(errArr).toContain('module');
-      expect(result.stdout).toMatchSnapshot(
+      expect(result.stdout.toString()).toMatchSnapshot(
         'Output for loading default config { }'
       );
       expect(result.exitCode).toBe(0);
@@ -116,7 +118,7 @@ describe('Testing CLI behavior', () => {
       ]);
 
       expect(result.exitCode).toBe(1);
-      expect(result.stdout).toMatchSnapshot('standard config');
+      expect(result.stdout.toString()).toMatchSnapshot('standard config');
     });
 
     it('should not show the linting errors  ( htmllinter.config.js present) as non-Error files ', () => {
@@ -129,7 +131,7 @@ describe('Testing CLI behavior', () => {
       ]);
 
       expect(result.exitCode).toBe(0);
-      expect(result.stdout).toMatchSnapshot('standard config');
+      expect(result.stdout.toString()).toMatchSnapshot('standard config');
     });
   });
 
@@ -139,7 +141,9 @@ describe('Testing CLI behavior', () => {
       const pattern = './fixtures/extendConfigRuleOff/input.html';
       const result = run(__dirname, [pattern, '-c', configFilePath]);
       expect(result.exitCode).toBe(1);
-      expect(result.stdout).toMatchSnapshot('standard config rule off');
+      expect(result.stdout.toString()).toMatchSnapshot(
+        'standard config rule off'
+      );
     });
 
     it('should not show the linting errors  ( htmllinter.config.js present) as non-Error files ', () => {
@@ -151,7 +155,9 @@ describe('Testing CLI behavior', () => {
         configFilePath,
       ]);
       expect(result.exitCode).toBe(0);
-      expect(result.stdout).toMatchSnapshot('standard config rule off');
+      expect(result.stdout.toString()).toMatchSnapshot(
+        'standard config rule off'
+      );
     });
   });
 });
