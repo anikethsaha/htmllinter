@@ -8,7 +8,9 @@ const resolveExtends = (extend, rules) => {
   // why I did this !!! X-)
   extend.plugins = extend.plugins || [];
   extend.rules = extend.rules || {};
+
   let plugins = [];
+  let reportingType = {};
   // disable rules
   completeRules = {
     ...completeRules,
@@ -17,16 +19,26 @@ const resolveExtends = (extend, rules) => {
   };
 
   if (extend.extend && Object.keys(extend.extend).length > 0) {
-    let pluginsFromExtend = resolveExtends(extend.extend, completeRules);
+    let [pluginsFromExtend, reportingTypeFromExtends] = resolveExtends(
+      extend.extend,
+      completeRules
+    );
     plugins.push(...pluginsFromExtend);
-
+    reportingType = {
+      ...reportingType,
+      ...reportingTypeFromExtends,
+    };
     if (extend.extend.plugins.length > 0) {
-      let pluginsFromExtendedExternalPlugins = resolveExternalPlugins(
-        extend.plugins,
-        completeRules
-      );
+      let [
+        pluginsFromExtendedExternalPlugins,
+        reportingTypeFromExternalPlugins,
+      ] = resolveExternalPlugins(extend.plugins, completeRules);
 
       plugins.push(...pluginsFromExtendedExternalPlugins);
+      reportingType = {
+        ...reportingType,
+        ...reportingTypeFromExternalPlugins,
+      };
     }
 
     extend = extend.extend;
@@ -47,7 +59,7 @@ const resolveExtends = (extend, rules) => {
           /**
            * the rule is an object ['on|off',{data?}]
            */
-          if (rule[0] === 'on') {
+          if (rule[0] === 'on' || rule[0] === 'warn') {
             /**
              * check if the rule[1] exists
              */
@@ -57,7 +69,11 @@ const resolveExtends = (extend, rules) => {
                * present at rule[1], therefore, pass the whole rule[1]
                * eg : 'no-empty-tag' : ['on',{ignore : ['p']}]
                */
-
+              if (rule[0] === 'warn') {
+                reportingType[ruleName] = 'warn';
+              } else {
+                reportingType[ruleName] = 'error';
+              }
               plugins.push({ rule: pluginList[ruleName], data: rule[1] });
             } else {
               /**
@@ -65,11 +81,21 @@ const resolveExtends = (extend, rules) => {
                * but with no data
                * eg : 'no-empty-tag' : ['on']
                */
+              if (rule[0] === 'warn') {
+                reportingType[ruleName] = 'warn';
+              } else {
+                reportingType[ruleName] = 'error';
+              }
               const pluginToAdd = getCompatiblePlugin(pluginList[ruleName]);
               plugins.push(pluginToAdd);
             }
           }
         } else {
+          if (rule === 'warn') {
+            reportingType[ruleName] = 'warn';
+          } else {
+            reportingType[ruleName] = 'error';
+          }
           const pluginToAdd = getCompatiblePlugin(pluginList[ruleName]);
           plugins.push(pluginToAdd);
         }
@@ -77,7 +103,7 @@ const resolveExtends = (extend, rules) => {
     });
   });
 
-  return plugins;
+  return [plugins, reportingType];
 };
 
 export default resolveExtends;

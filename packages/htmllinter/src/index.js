@@ -6,6 +6,7 @@ import resolveExternalPlugins from './resolveExternalPlugins';
 
 export const run = (html = '', config = {}) => {
   const plugins = [];
+  let reportingType = {};
   if (config.extend) {
     if (
       typeof config.extend !== 'function' &&
@@ -17,9 +18,16 @@ export const run = (html = '', config = {}) => {
       );
       return;
     }
-    const pluginsFromExtends = resolveExtends(config.extend, config.rules);
+    const [pluginsFromExtends, reportingTypeFromExtends] = resolveExtends(
+      config.extend,
+      config.rules
+    );
 
     plugins.push(...pluginsFromExtends);
+    reportingType = {
+      ...reportingType,
+      ...reportingTypeFromExtends,
+    };
   }
   if (config.plugins) {
     if (typeof config.plugins !== 'object') {
@@ -29,15 +37,18 @@ export const run = (html = '', config = {}) => {
       );
       return;
     }
-    const pluginsFromConfig = resolveExternalPlugins(
-      config.plugins,
-      config.rules
-    );
+    const [
+      pluginsFromConfig,
+      reportingTypeFromPlugins,
+    ] = resolveExternalPlugins(config.plugins, config.rules);
     plugins.push(...pluginsFromConfig);
+    reportingType = {
+      ...reportingType,
+      ...reportingTypeFromPlugins,
+    };
   }
 
   let lintingData = [];
-
   const posthtmlReadyPlugins = plugins.map((plugin) => {
     if (typeof plugin.data !== 'undefined') {
       return plugin.rule(plugin.data);
@@ -59,7 +70,7 @@ export const run = (html = '', config = {}) => {
 
       Object.keys(lintingMsgs).forEach((ruleName) => {
         lintingMsgs[ruleName].map((msg) => {
-          lintingData.push({ msg, ruleName }); // using array as it will be easy to create table
+          lintingData.push({ msg, ruleName, type: reportingType[ruleName] }); // using array as it will be easy to create table
         });
       });
       return lintingData;
