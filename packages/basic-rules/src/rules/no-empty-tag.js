@@ -2,6 +2,18 @@
 
 export default {
   ruleName: 'no-empty-tag',
+  meta: {
+    schema: {
+      type: 'object',
+      properties: {
+        ignore: {
+          type: 'array',
+          default: [],
+        },
+      },
+      additionalProperties: false,
+    },
+  },
   // eslint-disable-next-line no-unused-vars
   rule: function(options = {}, reporter = [], reportNode = []) {
     const { ignore } = options;

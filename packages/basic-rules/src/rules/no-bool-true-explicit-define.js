@@ -1,5 +1,8 @@
 export default {
   ruleName: 'no-bool-true-explicit-define',
+  meta: {
+    schema: {},
+  },
   // eslint-disable-next-line no-unused-vars
   rule: function(options = {}, reporter = [], reportNode = []) {
     return (tree) =>

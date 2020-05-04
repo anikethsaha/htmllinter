@@ -1,5 +1,8 @@
 export default {
   ruleName: 'no-duplicate-id',
+  meta: {
+    schema: {},
+  },
   // eslint-disable-next-line no-unused-vars
   rule: function(options = {}, reporter = [], reportNode = []) {
     let idCheck = {};
