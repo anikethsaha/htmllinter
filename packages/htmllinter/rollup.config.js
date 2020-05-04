@@ -50,4 +50,25 @@ module.exports = [
     ],
     plugins: [babel(babelConfig)],
   },
+  {
+    input: 'src/printer/default.js',
+    output: [
+      {
+        file: 'bin/printer/default.js',
+        format: 'cjs',
+      },
+
+      {
+        file: 'bin/printer/default.esm.js',
+        format: 'esm',
+      },
+
+      {
+        file: 'bin/printer/default.min.js',
+        format: 'cjs',
+        plugin: [terser()],
+      },
+    ],
+    plugins: [babel(babelConfig)],
+  },
 ];
