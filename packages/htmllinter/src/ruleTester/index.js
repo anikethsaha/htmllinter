@@ -20,7 +20,7 @@ class RuleTester {
     }
 
     // this means that this rule cant take option from config
-    return (html) => createHtmllinterPlugin(html, rule);
+    return () => (html) => createHtmllinterPlugin(html, rule);
   }
 
   run(ruleName, cases) {
