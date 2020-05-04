@@ -16,7 +16,7 @@ tester.run('no-empty-tag', {
       config: { ignore: ['a'] },
     },
   ],
-  invalid: [
+  inValid: [
     {
       input: '<a></a>',
       errors: [

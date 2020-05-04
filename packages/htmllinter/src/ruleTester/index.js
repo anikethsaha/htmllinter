@@ -24,7 +24,7 @@ class RuleTester {
   }
 
   run(ruleName, cases) {
-    const { valid, invalid } = cases;
+    const { valid, inValid } = cases;
     if (!ruleName) {
       throw new Error('Htmllinter ruleTest: ruleName cant be undefined. ');
     }
@@ -35,7 +35,7 @@ class RuleTester {
       );
     }
 
-    if (!invalid || invalid.length === 0) {
+    if (!inValid || inValid.length === 0) {
       throw new Error(
         'Htmllinter ruleTest: please specify atleast 1 valid cases '
       );
@@ -64,8 +64,8 @@ class RuleTester {
           });
         });
       });
-      describe('invalid', () => {
-        invalid.forEach(({ input, config = {}, errors = [] }) => {
+      describe('inValid', () => {
+        inValid.forEach(({ input, config = {}, errors = [] }) => {
           it(input, async () => {
             const _config = {
               plugins: [{ [ruleName]: this.rule }],
