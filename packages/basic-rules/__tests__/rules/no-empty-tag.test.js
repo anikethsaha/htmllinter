@@ -8,10 +8,30 @@ tester.run('no-empty-tag', {
     {
       input: '<a>d</a>',
     },
+    '<a><p>d</p></a>',
+    '<img />',
+    '<input type="text" />',
+    {
+      input: '<a></a>',
+      config: { ignore: ['a'] },
+    },
   ],
   invalid: [
     {
       input: '<a></a>',
+      errors: [
+        {
+          message: 'the tag < a > has no content.',
+        },
+      ],
+    },
+    {
+      input: '<a><p></p></a>',
+      errors: [
+        {
+          message: 'the tag < p > has no content.',
+        },
+      ],
     },
   ],
 });

@@ -71,8 +71,12 @@ export default (html = '', config = {}) => {
         });
 
       Object.keys(lintingMsgs).forEach((ruleName) => {
-        lintingMsgs[ruleName].map((msg) => {
-          lintingData.push({ msg, ruleName, type: reportingType[ruleName] }); // using array as it will be easy to create table
+        lintingMsgs[ruleName].map((message) => {
+          lintingData.push({
+            message,
+            ruleName,
+            type: reportingType[ruleName],
+          }); // using array as it will be easy to create table
         });
       });
 

@@ -2,9 +2,6 @@ import assert from 'assert';
 import run from '../htmllinter';
 import createHtmllinterPlugin from '../createHtmlLinterPlugin';
 
-const DESCRIBE = Symbol('describe');
-const IT = Symbol('it');
-
 class RuleTester {
   constructor(rule, option = {}) {
     this.option = option;
@@ -46,7 +43,16 @@ class RuleTester {
 
     describe(`Running tests for ${ruleName}`, () => {
       describe('valid', () => {
-        valid.forEach(({ input, config = {} }) => {
+        valid.forEach((validCase) => {
+          let input, config;
+          if (typeof validCase === 'string') {
+            input = validCase;
+            config = {};
+          } else {
+            input = validCase.input;
+            config = validCase.config || {};
+          }
+
           it(input, async () => {
             const _config = {
               plugins: [{ [ruleName]: this.rule }],
@@ -55,6 +61,28 @@ class RuleTester {
             const op = await run(input, _config);
 
             assert.strictEqual(op.length, 0);
+          });
+        });
+      });
+      describe('invalid', () => {
+        invalid.forEach(({ input, config = {}, errors = [] }) => {
+          it(input, async () => {
+            const _config = {
+              plugins: [{ [ruleName]: this.rule }],
+              rules: { [ruleName]: ['on', config] },
+            };
+            const op = await run(input, _config);
+
+            const lenCheck = op.length > 0;
+            const lenCheckErr = errors.length > 0;
+            assert.strictEqual(lenCheck, true);
+            assert.strictEqual(lenCheckErr, true);
+            assert.strictEqual(op.length, errors.length);
+            op.forEach((o, i) => {
+              assert.strictEqual(o.message === undefined, false);
+              assert.strictEqual(o.ruleName, ruleName);
+              assert.strictEqual(o.message, errors[i].message);
+            });
           });
         });
       });
