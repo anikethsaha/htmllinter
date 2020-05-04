@@ -1,5 +1,7 @@
-const table = require('text-table');
+// inspired from eslint's stylus formatter
 
+const table = require('text-table');
+const stripAnsi = require('strip-ansi');
 const chalk = require('chalk');
 
 module.exports = (datas, ipFileName = null) => {
@@ -20,5 +22,11 @@ module.exports = (datas, ipFileName = null) => {
           chalk.red(data.type),
         ]
   );
-  console.log(table(output));
+  console.log(
+    table(output, {
+      stringLength(s) {
+        return stripAnsi(s).length;
+      },
+    })
+  );
 };
