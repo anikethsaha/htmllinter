@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
+
 import { validateRuleSchema } from '../utils/schemaValidator';
-import assert from 'assert';
 
 describe('Schema Validation', () => {
   describe('object schema , object rule config', () => {

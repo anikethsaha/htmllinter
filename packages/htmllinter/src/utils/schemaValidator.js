@@ -9,7 +9,7 @@ const ajv = new Ajv({
   schemaId: 'auto',
 });
 
-function getRuleOptionsSchema(schema) {
+export const getRuleOptionsSchema = (schema) => {
   if (!schema) {
     return null;
   }
@@ -27,7 +27,7 @@ function getRuleOptionsSchema(schema) {
   }
 
   return schema;
-}
+};
 
 export const validateRuleSchema = (schema, option) => {
   let validate;
