@@ -1,6 +1,14 @@
-export default (tree, { ruleName, rule }, options = {}) => {
+import { validateRuleSchema } from './utils/schemaValidator';
+
+export default (
+  tree,
+  { ruleName, rule, meta = { schema: {} } },
+  options = {}
+) => {
   const reporter = [];
   const reportNode = []; // T.O.D.O : not ready yet
+
+  validateRuleSchema(meta.schema, options);
 
   const plugin = rule(options, reporter, reportNode)(tree);
   tree.messages
