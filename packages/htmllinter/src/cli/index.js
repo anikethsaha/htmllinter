@@ -1,8 +1,7 @@
-import { join, extname } from 'path';
+import { join, extname, resolve } from 'path';
 import { readFileSync } from 'fs';
 import glob from 'glob';
-import Table from 'cli-table3';
-import chalk from 'chalk';
+
 import { run } from '../index';
 import { error, info, success } from './logger';
 
@@ -63,7 +62,8 @@ const runCli = async (cb) => {
          */
         isError = lintDatas.some((lintData) => lintData.type === 'error');
       }
-      createTable(lintDatas, ipFileName);
+      const printer = getPrinter(config.printer);
+      printer(lintDatas, ipFileName);
       if (i === matches.length - 1 && cb) {
         cb(isError);
       }
@@ -79,21 +79,32 @@ runCli((isErr) => {
   }
 });
 
-const createTable = (datas, ipFileName = null) => {
-  console.log('\n', chalk.yellow(`Output for filename : ${ipFileName} \n`));
-
-  let table = new Table({
-    head: ['Message', 'Rule Name', 'type'].map((e) => chalk.redBright(e)),
-  });
-
-  datas.forEach((data) =>
-    data.type === 'error'
-      ? table.push(
-          [data.msg, data.ruleName, data.type].map((e) => chalk.yellowBright(e))
-        )
-      : table.push(
-          [data.msg, data.ruleName, data.type].map((e) => chalk.red(e))
-        )
-  );
-  console.log(table.toString());
+const getPrinter = (name = 'default') => {
+  if (typeof name === 'string') {
+    if (name !== 'default') {
+      let printPath;
+      try {
+        printPath = require.resolve(resolve(process.cwd(), name));
+      } catch (err) {
+        throw new Error(
+          `\n Error while loading printer at ${name} : ${err} \n`
+        );
+      }
+      const printer = require(printPath);
+      return printer;
+    } else {
+      const printerPath = require.resolve(
+        resolve(__dirname, './printer/default.js')
+      );
+      const printer = require(printerPath);
+      return printer;
+    }
+  } else {
+    try {
+      return require(name);
+    } catch (ex) {
+      ex.message = `There was a problem loading printer: ${name}\nError: ${ex.message}`;
+      throw ex;
+    }
+  }
 };
