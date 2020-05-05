@@ -11,7 +11,7 @@
     "watch": "npm run build -- -w",
     "build": "rollup -c rollup.config.js",
     "prepublish": "npm run build",
-    "test:only": "jest"
+    "test": "jest"
   },
   "keywords": [
     "html",

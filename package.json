@@ -9,7 +9,7 @@
     "build": "lerna run build",
     "postinstall": "lerna bootstrap",
     "bootstrap": "lerna exec npm install",
-    "test:only": "jest",
+    "test": "lerna run test",
     "linkDep": "lerna link",
     "publish": "lerna publish",
     "prepublish": "npm run build"
