@@ -25,6 +25,5 @@ jobs:
       - run: yarn install
       - run: yarn linkDep
       - run: yarn run build
-      - run: cd packages/htmllinter
       - run: yarn run lint
-      - run: yarn test
+      - run: yarn run test
