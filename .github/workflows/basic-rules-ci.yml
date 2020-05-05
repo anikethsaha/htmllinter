@@ -1,4 +1,4 @@
-name: CI tests
+name: Basic rules CI tests
 
 on:
   push:
@@ -25,6 +25,6 @@ jobs:
       - run: yarn install
       - run: yarn linkDep
       - run: yarn run build
-      - run: yarn run lint
-      - run: cd packages/htmllinter && yarn test
-      - run: cd ../basic-rules && yarn test
+      - run: cd packages/basic-rules
+      - run: yarn lint
+      - run: yarn test
