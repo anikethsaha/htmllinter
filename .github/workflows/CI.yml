@@ -26,4 +26,5 @@ jobs:
       - run: yarn linkDep
       - run: yarn run build
       - run: yarn run lint
-      - run: yarn run test
+      - run: cd packages/htmlllinter && yarn test
+      - run: cd ../basic-rules && yarn test
