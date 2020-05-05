@@ -6,10 +6,12 @@
   "scripts": {
     "prebuild": "del-cli dist",
     "build": "rollup -c rollup.config.js",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "jest "
   },
   "dependencies": {
-    "@htmllinter/core": "*"
+    "@htmllinter/core": "*",
+    "mocha": "^7.1.2"
   },
   "files": [
     "dist"
@@ -20,11 +22,14 @@
     "email": "anik220798@gmail.com"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "cross-env": "^7.0.0",
     "del-cli": "^3.0.0",
     "execa": "^4.0.0",
+    "jest": "^25.5.4",
     "rollup": "^1.31.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-terser": "^5.2.0"

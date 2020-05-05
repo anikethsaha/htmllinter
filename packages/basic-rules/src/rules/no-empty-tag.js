@@ -1,5 +1,7 @@
 /* eslint-disable no-prototype-builtins */
 
+const SINGLE_TAG = new Set(['img', 'input']);
+
 export default {
   ruleName: 'no-empty-tag',
   meta: {
@@ -20,7 +22,10 @@ export default {
     return (tree) =>
       tree.walk((node) => {
         if (node.hasOwnProperty('tag') && !node.content) {
-          if (ignore && ignore.includes(node.tag)) {
+          if (
+            (ignore && ignore.includes(node.tag)) ||
+            SINGLE_TAG.has(node.tag)
+          ) {
             return node;
           }
           reporter.push(`the tag < ${node.tag} > has no content.`);

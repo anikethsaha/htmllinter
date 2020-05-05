@@ -4,6 +4,8 @@ module.exports = {
     '/^_(.)+/',
     '/helper/',
     '/testplugins/',
+    'fixtures',
+    'utils',
   ],
   modulePathIgnorePatterns: ['<rootDir>/package.json'],
   testMatch: ['**/*.test.js'],

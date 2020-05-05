@@ -11,17 +11,18 @@ module.exports = (datas, ipFileName = null) => {
     data.type === 'error'
       ? [
           chalk.gray(idx),
-          data.msg,
+          data.message,
           chalk.gray(data.ruleName),
           chalk.yellowBright(data.type),
         ]
       : [
           chalk.gray(idx),
-          data.msg,
+          data.message,
           chalk.gray(data.ruleName),
           chalk.red(data.type),
         ]
   );
+
   console.log(
     table(output, {
       stringLength(s) {
