@@ -8,15 +8,18 @@ export default {
     return (tree) =>
       tree.walk((node) => {
         const { attrs } = node;
+
         if (!attrs) {
           return node;
         }
+
         Object.keys(attrs)
-          .filter((attr) => attrs[attr] === 'true')
+          .filter((attr) => attrs[attr][0].content === 'true')
           .map((attr) => {
-            reporter.push(
-              `the attribute "${attr}" seems to be boolean with value "true",please conside using "<${node.tag} ${attr}>...</${node.tag}>"`
-            );
+            reporter.push({
+              message: `the attribute "${attr}" boolean value "true", use "<${node.name} ${attr}>" instead`,
+              node,
+            });
           });
         return node;
       });
