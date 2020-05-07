@@ -5,6 +5,7 @@ export default {
   rules: {
     'no-empty-tag': 'on',
     'no-duplicate-id': 'on',
+    'no-duplicate-tag': 'on',
     'no-bool-true-explicit-define': 'on',
   },
 };

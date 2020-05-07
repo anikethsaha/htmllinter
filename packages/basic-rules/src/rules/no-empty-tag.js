@@ -21,7 +21,7 @@ export default {
     const { ignore } = options;
     return (tree) =>
       tree.walk((node) => {
-        if (typeof node.location.innerHTML === 'undefined') {
+        if (node.location && typeof node.location.innerHTML === 'undefined') {
           return node;
         }
         if (
