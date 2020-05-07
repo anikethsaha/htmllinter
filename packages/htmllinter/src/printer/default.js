@@ -11,12 +11,18 @@ module.exports = (datas, ipFileName = null) => {
     data.type === 'error'
       ? [
           chalk.gray(idx),
+          `${chalk.red(data.node.location.line)}:${chalk.red(
+            data.node.location.col
+          )}`,
           data.message,
           chalk.gray(data.ruleName),
           chalk.yellowBright(data.type),
         ]
       : [
           chalk.gray(idx),
+          `${chalk.red(data.node.location.line)}:${chalk.red(
+            data.node.location.col
+          )}`,
           data.message,
           chalk.gray(data.ruleName),
           chalk.red(data.type),

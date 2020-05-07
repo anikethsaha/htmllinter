@@ -15,7 +15,9 @@ export default (
     .filter((msg) => msg.htmlLinter !== undefined)
     .map((msg) => {
       const msgToPush = {};
+
       msgToPush[ruleName] = reporter;
+
       msg.htmlLinter = {
         ...msg.htmlLinter,
         ...msgToPush,
