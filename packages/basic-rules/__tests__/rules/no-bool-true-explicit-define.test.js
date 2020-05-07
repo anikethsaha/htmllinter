@@ -15,7 +15,7 @@ tester.run('no-bool-true-explicit-define', {
       errors: [
         {
           message:
-            'the attribute "disabled" seems to be boolean with value "true",please conside using "<input disabled>...</input>"',
+            'the attribute "disabled" boolean value "true", use "<input disabled>" instead',
         },
       ],
     },
