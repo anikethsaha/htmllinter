@@ -9,15 +9,20 @@ const rule = function(options = {}, reporter = [], reportNode = []) {
     };
 
     tree.walk((node) => {
-      if (node.tag && Object.keys(docTagCount).includes(node.tag)) {
-        docTagCount[node.tag] += 1;
+      if (node.type !== 'tag') {
+        return node;
+      }
 
-        if (docTagCount[node.tag] > 1) {
-          reporter.push(
-            `the tag ${node.tag} is used ${
-              docTagCount[node.tag]
-            } times which is illegal`
-          );
+      if (Object.keys(docTagCount).includes(node.name)) {
+        docTagCount[node.name] += 1;
+
+        if (docTagCount[node.name] > 1) {
+          reporter.push({
+            message: `the tag ${node.name} is used ${
+              docTagCount[node.name]
+            } times which is illegal`,
+            node,
+          });
         }
       }
 

@@ -6,11 +6,17 @@ exports[`Testing CLI behavior Config flag should show message when correct path 
 [35m[39m
 
 [42m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file ./fixtures/extendConfig/input.html[39m
-[32m[39m{ datas: [] }
+[32m[39m
+ [33mOutput for filename : ./fixtures/extendConfig/input.html [39m
+[33m[39m
+
 
 
 [42m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file ./fixtures/extendConfig/noError.html[39m
-[32m[39m{ datas: [] }"
+[32m[39m
+ [33mOutput for filename : ./fixtures/extendConfig/noError.html [39m
+[33m[39m
+"
 `;
 
 exports[`Testing CLI behavior Config flag should show message when htmllinter.config.js is passed along with the path even if correct: Output for loading default config { } 1`] = `
@@ -19,11 +25,17 @@ exports[`Testing CLI behavior Config flag should show message when htmllinter.co
 [35m[39m
 
 [42m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file input.html[39m
-[32m[39m{ datas: [] }
+[32m[39m
+ [33mOutput for filename : input.html [39m
+[33m[39m
+
 
 
 [42m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file noError.html[39m
-[32m[39m{ datas: [] }"
+[32m[39m
+ [33mOutput for filename : noError.html [39m
+[33m[39m
+"
 `;
 
 exports[`Testing CLI behavior default config : fixture : defaultConfig should not throw error, load default config (htmllinter.config.js is present) when no config arg is passed   : no-error: default config no error 1`] = `
@@ -56,20 +68,11 @@ exports[`Testing CLI behavior default config : fixture : defaultConfig should no
 
 exports[`Testing CLI behavior default config : fixture : defaultConfig should not throw error, load default config (htmllinter.config.js is present) when no config arg is passed: default config 1`] = `
 "[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking input.html [39m
-[35m[39m{
-  datas: [
-    {
-      message: 'the tag < h3 > has no content.',
-      ruleName: 'no-empty-tag',
-      type: 'error'
-    },
-    {
-      message: 'duplicate ids asd adsasd @ a',
-      ruleName: 'no-duplicate-id',
-      type: 'error'
-    }
-  ]
-}"
+[35m[39m
+ [33mOutput for filename : input.html [39m
+[33m[39m
+[90m0[39m  [31m7[39m:[31m5[39m  the tag < h3 > has no content.    [90mno-empty-tag[39m     [93merror[39m
+[90m1[39m  [31m6[39m:[31m8[39m  duplicate ids 'asd adsasd' for a  [90mno-duplicate-id[39m  [93merror[39m"
 `;
 
 exports[`Testing CLI behavior input pattern should show help when no arg is passed with proper err message: [HTMLLINTER]: no argument passed. Please provide the input file(s) atleast 1`] = `"[41m[HTMLLINTER]:[49m [31mno argument passed. Please provide the input file(s) atleast[39m"`;
@@ -139,43 +142,21 @@ exports[`Testing CLI behavior no config file : fixture : noConfig should load de
 [35m[39m
 
 [42m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file input.html[39m
-[32m[39m{ datas: [] }"
-`;
-
-exports[`Testing CLI behavior standard config : fixture : extendConfig should not show the linting errors  ( htmllinter.config.js present) as non-Error files : standard config 1`] = `
-"[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking noError.html [39m
-[35m[39m
-
-[42m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file noError.html[39m
-[32m[39m{ datas: [] }"
+[32m[39m
+ [33mOutput for filename : input.html [39m
+[33m[39m
+"
 `;
 
 exports[`Testing CLI behavior standard config : fixture : extendConfig should show the linting errors  ( htmllinter.config.js present) : standard config 1`] = `
 "[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking input.html [39m
-[35m[39m{
-  datas: [
-    {
-      message: 'the tag < p > has no content.',
-      ruleName: 'no-empty-tag',
-      type: 'error'
-    },
-    {
-      message: 'the tag < h3 > has no content.',
-      ruleName: 'no-empty-tag',
-      type: 'error'
-    },
-    {
-      message: 'duplicate ids asd adsasd @ a',
-      ruleName: 'no-duplicate-id',
-      type: 'error'
-    },
-    {
-      message: 'the attribute \\"enable\\" seems to be boolean with value \\"true\\",please conside using \\"<p enable>...</p>\\"',
-      ruleName: 'no-bool-true-explicit-define',
-      type: 'error'
-    }
-  ]
-}"
+[35m[39m
+ [33mOutput for filename : input.html [39m
+[33m[39m
+[90m0[39m  [31m7[39m:[31m5[39m  the tag < p > has no content.                                          [90mno-empty-tag[39m                  [93merror[39m
+[90m1[39m  [31m8[39m:[31m5[39m  the tag < h3 > has no content.                                         [90mno-empty-tag[39m                  [93merror[39m
+[90m2[39m  [31m6[39m:[31m8[39m  duplicate ids 'asd adsasd' for a                                       [90mno-duplicate-id[39m               [93merror[39m
+[90m3[39m  [31m7[39m:[31m5[39m  the attribute \\"enable\\" boolean value \\"true\\", use \\"<p enable>\\" instead  [90mno-bool-true-explicit-define[39m  [93merror[39m"
 `;
 
 exports[`Testing CLI behavior standard config with rule off : fixture : extendConfigRuleOff should not show the linting errors  ( htmllinter.config.js present) as non-Error files : standard config rule off 1`] = `
@@ -183,18 +164,16 @@ exports[`Testing CLI behavior standard config with rule off : fixture : extendCo
 [35m[39m
 
 [42m[1m[HTMLLINTER] :[22m[49m [32m0 errors found for file noError.html[39m
-[32m[39m{ datas: [] }"
+[32m[39m
+ [33mOutput for filename : noError.html [39m
+[33m[39m
+"
 `;
 
 exports[`Testing CLI behavior standard config with rule off : fixture : extendConfigRuleOff should show the linting errors  ( htmllinter.config.js present) : standard config rule off 1`] = `
 "[42m[37m[1m[HTMLLINTER] :[22m[39m[49m[35m Checking ./fixtures/extendConfigRuleOff/input.html [39m
-[35m[39m{
-  datas: [
-    {
-      message: 'duplicate ids asd adsasd @ a',
-      ruleName: 'no-duplicate-id',
-      type: 'error'
-    }
-  ]
-}"
+[35m[39m
+ [33mOutput for filename : ./fixtures/extendConfigRuleOff/input.html [39m
+[33m[39m
+[90m0[39m  [31m6[39m:[31m8[39m  duplicate ids 'asd adsasd' for a  [90mno-duplicate-id[39m  [93merror[39m"
 `;

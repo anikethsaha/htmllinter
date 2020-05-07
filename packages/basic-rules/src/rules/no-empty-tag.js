@@ -21,14 +21,24 @@ export default {
     const { ignore } = options;
     return (tree) =>
       tree.walk((node) => {
-        if (node.hasOwnProperty('tag') && !node.content) {
+        if (typeof node.location.innerHTML === 'undefined') {
+          return node;
+        }
+        if (
+          node.type === 'tag' &&
+          !node.content &&
+          node.location.innerHTML.trim() === ''
+        ) {
           if (
-            (ignore && ignore.includes(node.tag)) ||
-            SINGLE_TAG.has(node.tag)
+            (ignore && ignore.includes(node.name)) ||
+            SINGLE_TAG.has(node.name)
           ) {
             return node;
           }
-          reporter.push(`the tag < ${node.tag} > has no content.`);
+          reporter.push({
+            message: `the tag < ${node.name} > has no content.`,
+            node,
+          });
           /**
            * TODO
            * reportNode.push(node);

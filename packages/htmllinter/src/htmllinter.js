@@ -1,4 +1,5 @@
 import posthtml from 'posthtml';
+import parser from 'reshape-parser';
 import helperPluginStart from './helperPluginStart';
 import resolveExtends from './resolveExtends';
 import resolveExternalPlugins from './resolveExternalPlugins';
@@ -60,7 +61,7 @@ export default (html = '', config = {}) => {
   });
 
   return posthtml([helperPluginStart].concat(posthtmlReadyPlugins))
-    .process(html)
+    .process(html, { parser })
     .then((result) => {
       let lintingMsgs;
 
@@ -73,7 +74,7 @@ export default (html = '', config = {}) => {
       Object.keys(lintingMsgs).forEach((ruleName) => {
         lintingMsgs[ruleName].map((message) => {
           lintingData.push({
-            message,
+            ...message,
             ruleName,
             type: reportingType[ruleName],
           }); // using array as it will be easy to create table

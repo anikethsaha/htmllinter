@@ -13,11 +13,15 @@ export default {
           return node;
         }
         const { id } = attrs;
+
         if (!id) {
           return node;
         }
         if (idCheck[id]) {
-          reporter.push(`duplicate ids ${id} @ ${node.tag}`);
+          reporter.push({
+            message: `duplicate ids '${id[0].content}' for ${node.name}`,
+            node: id[0],
+          });
           return node;
         }
 
