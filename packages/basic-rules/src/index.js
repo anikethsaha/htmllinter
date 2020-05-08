@@ -5,6 +5,7 @@ import noEmptyTag from './rules/no-empty-tag';
 import noBoolTrueExplicitDefine from './rules/no-bool-true-explicit-define';
 import noDupId from './rules/no-duplicate-id';
 import noDupTag from './rules/no-duplicate-tag';
+import doctypeTop from './rules/doctype-top';
 
 export default {
   // for rules that needs options/data from config, use like this
@@ -15,6 +16,8 @@ export default {
   [noDupId.ruleName]: (html) => createHTMLLintPlugin(html, noDupId),
 
   [noDupTag.ruleName]: (html) => createHTMLLintPlugin(html, noDupTag),
+  [doctypeTop.ruleName]: (options = {}) => (html) =>
+    createHTMLLintPlugin(html, doctypeTop, options),
 
   [noBoolTrueExplicitDefine.ruleName]: (html) =>
     createHTMLLintPlugin(html, noBoolTrueExplicitDefine),

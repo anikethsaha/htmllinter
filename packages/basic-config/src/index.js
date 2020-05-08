@@ -7,5 +7,6 @@ export default {
     'no-duplicate-id': 'on',
     'no-duplicate-tag': 'on',
     'no-bool-true-explicit-define': 'on',
+    'doctype-top': ['on', { startingLineNumber: 1 }],
   },
 };
