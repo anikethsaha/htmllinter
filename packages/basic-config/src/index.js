@@ -8,5 +8,6 @@ export default {
     'no-duplicate-tag': 'on',
     'no-bool-true-explicit-define': 'on',
     'doctype-top': ['on', { startingLineNumber: 1 }],
+    'long-line-content': 'on',
   },
 };

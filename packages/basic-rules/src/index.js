@@ -6,18 +6,20 @@ import noBoolTrueExplicitDefine from './rules/no-bool-true-explicit-define';
 import noDupId from './rules/no-duplicate-id';
 import noDupTag from './rules/no-duplicate-tag';
 import doctypeTop from './rules/doctype-top';
+import longLineContent from './rules/long-line-content';
 
 export default {
   // for rules that needs options/data from config, use like this
   [noEmptyTag.ruleName]: (optionsFromConfig = {}) => (html) =>
     createHTMLLintPlugin(html, noEmptyTag, optionsFromConfig),
-
+  [longLineContent.ruleName]: (optionsFromConfig = {}) => (html) =>
+    createHTMLLintPlugin(html, longLineContent, optionsFromConfig),
   // for those rules, that doesnt need any options from config, use like this
   [noDupId.ruleName]: (html) => createHTMLLintPlugin(html, noDupId),
 
   [noDupTag.ruleName]: (html) => createHTMLLintPlugin(html, noDupTag),
-  [doctypeTop.ruleName]: (options = {}) => (html) =>
-    createHTMLLintPlugin(html, doctypeTop, options),
+  [doctypeTop.ruleName]: (optionsFromConfig = {}) => (html) =>
+    createHTMLLintPlugin(html, doctypeTop, optionsFromConfig),
 
   [noBoolTrueExplicitDefine.ruleName]: (html) =>
     createHTMLLintPlugin(html, noBoolTrueExplicitDefine),
