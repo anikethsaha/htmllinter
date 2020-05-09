@@ -21,7 +21,7 @@ module.exports = {
         tree.walk(node => {
           ...
           // use the 'reporter` array to pass your message to `htmllinter` reporter
-          reporter.push('there is some linting err at tag `p` ')
+          reporter.push({ message: 'there is some linting err at tag `p`', node })
         })
       } 
   }
