@@ -10,8 +10,7 @@
     "test": "jest "
   },
   "dependencies": {
-    "@htmllinter/core": "*",
-    "mocha": "^7.1.2"
+    "@htmllinter/core": "*"
   },
   "files": [
     "dist"
