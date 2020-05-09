@@ -8,7 +8,7 @@
 
 <p align="center">
 
-<img alt="efba logo" src="https://imgur.com/9pWjH5N.png" width="350px" />
+<img alt="efba logo" src="https://user-images.githubusercontent.com/26347874/81382560-3874f900-912c-11ea-9276-fc6a69c30883.png" width="500px" />
 
 </p>
 
