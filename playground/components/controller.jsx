@@ -1,34 +1,30 @@
-// eslint-disable-next-line no-unused-vars
 import { Pane, Heading } from 'evergreen-ui';
 import React, { Component } from 'react';
-
-import { AppContext } from '../context/AppContext';
-
-import CodeMirror from 'react-codemirror';
 import { ToolboxHeading } from './style';
-import styled, { withTheme } from 'styled-components';
-import RunButton from './runButton';
+import { AppContext } from '../context/AppContext';
+import { withTheme } from 'styled-components';
+import ConfigViewController from './configView.controller';
+import ConfigEditController from './configEdit.controller';
+// Transform the input here and show the metadata about the input
 
-const Editor = styled(CodeMirror)`
-  background: ${(props) => props.theme.bg};
-  height: 100%;
-  width: 100%;
-  border: none;
-  box-shadow: 'none';
-  font-size: ${(props) => props.theme.fontSize};
-`;
+const RenderControllerItem = ({ ...props }) => {
+  // eslint-disable-next-line no-warning-comments
+  // FIXME : need codesplitting here
+  if (props.item === 'configView') {
+    return <ConfigViewController />;
+  }
+  if (props.item === 'configEdit') {
+    return <ConfigEditController />;
+  }
+};
 
-class InputArea extends Component {
+class Controller extends Component {
   static contextType = AppContext;
   constructor(props) {
     super(props);
   }
 
   render() {
-    const options = {
-      lineNumbers: true,
-      mode: 'htmlmixed',
-    };
     return (
       <div
         style={{
@@ -46,29 +42,23 @@ class InputArea extends Component {
             size={600}
             style={{ lineHeight: '1rem', display: 'flex', flexGrow: 2 }}
           >
-            Input
+            {this.context.controllerItem}
           </Heading>
-          <RunButton />
         </ToolboxHeading>
 
         <Pane
           height={'100%'}
           width={'100%'}
+          padding={10}
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
-          <Editor
-            value={this.context.input || ''}
-            alignItems="center"
-            justifyContent="center"
-            onChange={(val) => this.context.setInput(val)}
-            options={options}
-          />
+          <RenderControllerItem item={this.context.controllerItem} />
         </Pane>
       </div>
     );
   }
 }
 
-export default withTheme(InputArea);
+export default withTheme(Controller);

@@ -1,7 +1,11 @@
 import React, { useContext } from 'react';
-import { Button, Icon } from 'evergreen-ui';
+
 import { AppContext } from '../context/AppContext';
+import { withTheme } from 'styled-components';
+// import styled from 'styled-components';
 import { run } from '@htmllinter/core';
+import { ActionButton } from './style';
+import { FiPlay } from 'react-icons/fi';
 
 const RunButton = () => {
   const { input, setLintingTree, setLinting, config } = useContext(AppContext);
@@ -15,14 +19,10 @@ const RunButton = () => {
   };
 
   return (
-    <Button
-      style={{ background: '#0052cc', color: 'white', fontSize: '1rem' }}
-      onClick={transformCode}
-    >
-      <Icon icon="circle-arrow-right" color="success" marginRight={16} />
-      Run
-    </Button>
+    <ActionButton onClick={transformCode}>
+      <FiPlay />
+    </ActionButton>
   );
 };
 
-export default RunButton;
+export default withTheme(RunButton);
