@@ -4,10 +4,16 @@ import rule from '../../src/rules/newline-multiline-comments';
 const tester = new RuleTester(rule, {});
 
 tester.run('newline-multiline-comments', {
-  valid: [`<!-- hey look single line -->`],
+  valid: [
+    `<!--
+    hellow
+    wrold
+    -->
+    `,
+  ],
   inValid: [
     {
-      input: '<!-- \n hellow -->',
+      input: '<!-- world \n hellow -->',
       errors: [
         {
           message: 'multiline comments should start with a new line',
@@ -15,15 +21,8 @@ tester.run('newline-multiline-comments', {
       ],
     },
     {
-      input: '<!--\t\n hellow -->',
-      errors: [
-        {
-          message: 'multiline comments should start with a new line',
-        },
-      ],
-    },
-    {
-      input: '<!--\r hello -->',
+      input: `<!--\thellow
+       world -->`,
       errors: [
         {
           message: 'multiline comments should start with a new line',
