@@ -10,5 +10,6 @@ export default {
     'doctype-top': ['on', { startingLineNumber: 1 }],
     'long-line-content': 'on',
     'no-missing-alt': 'on',
+    'newline-multiline-comments': 'on',
   },
 };

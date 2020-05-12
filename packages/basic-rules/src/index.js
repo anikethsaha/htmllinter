@@ -8,6 +8,7 @@ import noDupTag from './rules/no-duplicate-tag';
 import doctypeTop from './rules/doctype-top';
 import longLineContent from './rules/long-line-content';
 import noMissingAlt from './rules/no-missing-alt';
+import newlineMultilineComments from './rules/newline-multiline-comments';
 
 export default {
   // for rules that needs options/data from config, use like this
@@ -22,6 +23,8 @@ export default {
   [noDupTag.ruleName]: (html) => createHTMLLintPlugin(html, noDupTag),
   [doctypeTop.ruleName]: (optionsFromConfig = {}) => (html) =>
     createHTMLLintPlugin(html, doctypeTop, optionsFromConfig),
+  [newlineMultilineComments.ruleName]: (html) =>
+    createHTMLLintPlugin(html, newlineMultilineComments),
 
   [noBoolTrueExplicitDefine.ruleName]: (html) =>
     createHTMLLintPlugin(html, noBoolTrueExplicitDefine),

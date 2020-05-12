@@ -14,7 +14,7 @@ tester.run('no-missing-alt', {
         },
       ],
     },
-     {
+    {
       input: '<img src=""/>',
       errors: [
         {
