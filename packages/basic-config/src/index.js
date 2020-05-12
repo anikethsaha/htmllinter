@@ -11,5 +11,6 @@ export default {
     'long-line-content': 'on',
     'no-missing-alt': 'on',
     'newline-multiline-comments': 'on',
+    'trailing-singleline-comments': 'on',
   },
 };
