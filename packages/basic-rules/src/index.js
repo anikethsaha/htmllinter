@@ -10,6 +10,7 @@ import longLineContent from './rules/long-line-content';
 import noMissingAlt from './rules/no-missing-alt';
 import newlineMultilineComments from './rules/newline-multiline-comments';
 import trailingSinglineComments from './rules/trailing-singleline-comments';
+import newlineEof from './rules/newline-eof';
 
 export default {
   // for rules that needs options/data from config, use like this
@@ -29,4 +30,6 @@ export default {
     createHTMLLintPlugin(html, trailingSinglineComments),
   [noBoolTrueExplicitDefine.ruleName]: (html) =>
     createHTMLLintPlugin(html, noBoolTrueExplicitDefine),
+  [newlineEof.ruleName]: (optionsFromConfig = {}) => (html) =>
+    createHTMLLintPlugin(html, newlineEof, optionsFromConfig),
 };

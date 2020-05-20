@@ -12,5 +12,6 @@ export default {
     'no-missing-alt': 'on',
     'newline-multiline-comments': 'on',
     'trailing-singleline-comments': 'on',
+    'newline-eof': 'on',
   },
 };
