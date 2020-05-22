@@ -144,7 +144,7 @@ export default {
     schema: {
       type: 'object',
       properties: {
-        stylelintConfig: {
+        config: {
           type: 'object',
           default: {},
         },
@@ -152,23 +152,27 @@ export default {
           type: 'object',
           default: {},
         },
+
+        globbyOptions: {
+          type: 'object',
+        },
       },
       additionalProperties: false,
     },
   },
   // eslint-disable-next-line no-unused-vars
   rule: function(options = {}, reporter = []) {
-    let stylelintConfig = defaultStylelintConfig;
+    let stylelintConfig = { ...defaultStylelintConfig, ...options.config };
     stylelintConfig.rules = {
       ...defaultStylelintConfig.rules,
-      ...options.stylelintConfig.rules,
+      ...options.config.rules,
     };
 
-    const { configOverrides } = options;
+    const { configOverrides, globbyOptions } = options;
     return (tree) =>
       new Promise((resolve) => {
         tree.walk((node) => {
-          if (node.type === 'tag' && node.name === 'style') {
+          if (node.type === 'tag' && node.name === 'style' && node.content) {
             node.content.forEach((contentNode) => {
               const { content } = contentNode;
               if (content) {
@@ -177,6 +181,7 @@ export default {
                     code: content,
                     config: stylelintConfig,
                     configOverrides,
+                    globbyOptions,
                   })
                   .then((res) => {
                     const { results } = res;
