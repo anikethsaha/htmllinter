@@ -1,7 +1,7 @@
 {
-  "name": "htmllinter-plugin-stylelint",
+  "name": "htmllinter-plugin-eslint",
   "version": "0.1.0",
-  "description": "htmllinter plugin to lint style tags using stylelint",
+  "description": "htmllinter plugin to lint script tags using eslint",
   "main": "dist/index.js",
   "scripts": {
     "prebuild": "del-cli dist",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@htmllinter/core": "^0.4.0",
-    "stylelint": "^13.5.0"
+    "eslint": "^7.0.0"
   },
   "files": [
     "dist"
@@ -35,10 +35,9 @@
   },
   "keywords": [
     "linter",
-    "standard",
     "config",
     "htmllinter",
     "lint",
-    "stylelint"
+    "eslint"
   ]
 }

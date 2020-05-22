@@ -196,7 +196,7 @@ export default {
                         node: {
                           location: {
                             line: node.location.line + warning.line,
-                            col: node.location.col + warning.column,
+                            col: warning.column,
                           },
                         },
                       });

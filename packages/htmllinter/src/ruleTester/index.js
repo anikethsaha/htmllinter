@@ -59,7 +59,6 @@ class RuleTester {
               rules: { [ruleName]: ['on', config] },
             };
             const op = await run(input, _config);
-
             assert.strictEqual(op.length, 0);
           });
         });
@@ -85,7 +84,8 @@ class RuleTester {
 
               if (errors[i].location) {
                 const { location } = errors[i];
-                const { line, col } = o.errors;
+                const { line, col } = o.node.location;
+
                 assert.strictEqual(line, location.line);
                 assert.strictEqual(col, location.col);
               }
