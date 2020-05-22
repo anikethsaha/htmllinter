@@ -63,6 +63,7 @@ const runCli = async (cb) => {
         isError = lintDatas.some((lintData) => lintData.type === 'error');
       }
       const printer = getPrinter(config.printer);
+
       printer(lintDatas, ipFileName);
       if (i === matches.length - 1 && cb) {
         cb(isError);

@@ -7,16 +7,17 @@ const chalk = require('chalk');
 module.exports = (datas, ipFileName = null) => {
   console.log('\n', chalk.yellow(`Output for filename : ${ipFileName} \n`));
 
-  const output = datas.map((data, idx) =>
-    data.type === 'error'
+  const output = datas.map((data, idx) => {
+    const severity = data.severity || data.type;
+    return severity === 'error'
       ? [
           chalk.gray(idx),
           `${chalk.red(data.node.location.line)}:${chalk.red(
             data.node.location.col
           )}`,
           data.message,
-          chalk.gray(data.ruleName),
-          chalk.yellowBright(data.type),
+          chalk.gray(`${data.ruleName}/${data.subRuleName || ''}`),
+          chalk.red(severity),
         ]
       : [
           chalk.gray(idx),
@@ -24,10 +25,10 @@ module.exports = (datas, ipFileName = null) => {
             data.node.location.col
           )}`,
           data.message,
-          chalk.gray(data.ruleName),
-          chalk.red(data.type),
-        ]
-  );
+          chalk.gray(`${data.ruleName}/${data.subRuleName || ''}`),
+          chalk.yellowBright(severity),
+        ];
+  });
 
   console.log(
     table(output, {

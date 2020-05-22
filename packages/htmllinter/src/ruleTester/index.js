@@ -82,6 +82,13 @@ class RuleTester {
               assert.strictEqual(o.message === undefined, false);
               assert.strictEqual(o.ruleName, ruleName);
               assert.strictEqual(o.message, errors[i].message);
+
+              if (errors[i].location) {
+                const { location } = errors[i];
+                const { line, col } = o.errors;
+                assert.strictEqual(line, location.line);
+                assert.strictEqual(col, location.col);
+              }
             });
           });
         });
