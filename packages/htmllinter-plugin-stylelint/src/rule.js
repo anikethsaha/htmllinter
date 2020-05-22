@@ -169,13 +169,15 @@ export default {
     };
 
     const { configOverrides, globbyOptions } = options;
-    return (tree) =>
-      new Promise((resolve) => {
-        tree.walk((node) => {
-          if (node.type === 'tag' && node.name === 'style' && node.content) {
-            node.content.forEach((contentNode) => {
-              const { content } = contentNode;
-              if (content) {
+    return (tree) => {
+      const promiz = [];
+
+      tree.match({ type: 'tag', name: 'style' }, (node) => {
+        if (node.content) {
+          node.content.forEach((contentNode) => {
+            const { content } = contentNode;
+            if (content) {
+              promiz.push(
                 stylelint
                   .lint({
                     code: content,
@@ -199,14 +201,19 @@ export default {
                         },
                       });
                     });
-                    resolve(tree);
-                  });
-              }
-            });
-          }
-
-          return node;
-        });
+                  })
+              );
+            }
+          });
+        }
+        return node;
       });
+
+      return promiz.length > 0
+        ? Promise.all(promiz).then(() => {
+            return tree;
+          })
+        : tree;
+    };
   },
 };

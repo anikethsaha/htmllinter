@@ -4,13 +4,23 @@ import rule from '../src/rule';
 const tester = new RuleTester(rule, {});
 
 tester.run('stylelint', {
-  valid: [`<style></style>`, '<style>a { color: #fff; }</style>'],
+  valid: [`<style></style>`, '<style>a { color: #fff; }\n</style>'],
   inValid: [
     {
       input: '<style>a {color: #FFF; }</style>',
       errors: [
         {
-          message: 'doctype should be at line no. 2 but found at 3',
+          message:
+            'Expected single space after "{" of a single-line block (block-opening-brace-space-after)',
+        },
+        {
+          message: 'Expected "#FFF" to be "#fff" (color-hex-case)',
+        },
+        {
+          message:
+            'Unexpected missing end-of-source newline (no-missing-end-of-source-newline)',
+          col: 18,
+          line: 2,
         },
       ],
     },
