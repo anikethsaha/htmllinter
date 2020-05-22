@@ -19,8 +19,7 @@ tester.run('stylelint', {
         {
           message:
             'Unexpected missing end-of-source newline (no-missing-end-of-source-newline)',
-          col: 18,
-          line: 2,
+          location: { col: 17, line: 2 },
         },
       ],
     },
