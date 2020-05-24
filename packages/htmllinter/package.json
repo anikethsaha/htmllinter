@@ -22,7 +22,8 @@
     "htmllinter"
   ],
   "files": [
-    "dist"
+    "dist",
+    "bin"
   ],
   "repository": "anikethsaha/htmllinter",
   "author": {
