@@ -34,7 +34,7 @@ const runCli = async (cb) => {
     }
 
     const config = getConfig(args);
-
+    const ext = config.ext || '.html';
     /**
      * Getting the filtered correct matches as we need the length in order to make the
      * linting async with cb as it is required to throw exit(1) if there is any error found
@@ -43,7 +43,7 @@ const runCli = async (cb) => {
     matches = matches
       .filter(
         (filename) =>
-          extname(filename) === '.html' || extname(filename) === '.HTML'
+          extname(filename) === ext || extname(filename) === ext.toUpperCase()
       )
       .map((res) => res);
 

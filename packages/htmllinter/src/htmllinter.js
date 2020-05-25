@@ -1,5 +1,5 @@
 import posthtml from 'posthtml';
-import parser from 'reshape-parser';
+import defaultParser from 'reshape-parser';
 import helperPluginStart from './helperPluginStart';
 import resolveExtends from './resolveExtends';
 import resolveExternalPlugins from './resolveExternalPlugins';
@@ -60,8 +60,10 @@ export default (html = '', config = {}) => {
     }
   });
 
+  const posthtmlParser = config.parser || defaultParser;
+
   return posthtml([helperPluginStart].concat(posthtmlReadyPlugins))
-    .process(html, { parser })
+    .process(html, { parser: posthtmlParser })
     .then((result) => {
       let lintingMsgs;
 

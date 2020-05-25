@@ -19,11 +19,7 @@ export const getUserDefineConfigFilePath = (argv) => {
        */
       const pathToConfig = argv[i + 1];
 
-      configFilePath = join(
-        process.cwd(),
-        pathToConfig,
-        'htmllinter.config.js'
-      );
+      configFilePath = join(process.cwd(), pathToConfig);
     }
   });
 
