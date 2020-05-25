@@ -30,7 +30,7 @@ module.exports = (datas, ipFileName = null) => {
         ];
   });
 
-  console.log(
+  process.stdout.write(
     table(output, {
       stringLength(s) {
         return stripAnsi(s).length;
