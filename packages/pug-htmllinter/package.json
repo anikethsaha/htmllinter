@@ -1,0 +1,44 @@
+{
+  "name": "htmllinter-pug",
+  "version": "0.1.0",
+  "description": "pug lang support for htmllinter",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "del-cli dist",
+    "build": "rollup -c rollup.config.js",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@htmllinter/core": "^0.5.0",
+    "pug-lexer": "^5.0.0",
+    "pug-parser": "^6.0.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": "anikethsaha/htmllinter",
+  "author": {
+    "name": "anikethsaha",
+    "email": "anik220798@gmail.com"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
+    "cross-env": "^7.0.0",
+    "del-cli": "^3.0.0",
+    "jest": "^25.5.4",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^5.2.0"
+  },
+  "keywords": [
+    "linter",
+    "standard",
+    "config",
+    "htmllinter",
+    "lint"
+  ]
+}

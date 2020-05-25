@@ -60,8 +60,10 @@ export default (html = '', config = {}) => {
     }
   });
 
+  const posthtmlParser = config.parser || parser;
+
   return posthtml([helperPluginStart].concat(posthtmlReadyPlugins))
-    .process(html, { parser })
+    .process(html, { parser: posthtmlParser })
     .then((result) => {
       let lintingMsgs;
 

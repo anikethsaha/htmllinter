@@ -26,7 +26,9 @@ _webpackOutput
 
 
 /htmllinter.config.js
+/htmllinter.config.pug.js
 /input.html
+/index.pug
 /examples/webpack_plugin_example/node_modules
 /examples/webpack_plugin_example/yarn.lock
 /examples/webpack_plugin_example/package-lock.json
