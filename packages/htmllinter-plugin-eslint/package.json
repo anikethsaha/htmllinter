@@ -1,6 +1,6 @@
 {
   "name": "htmllinter-plugin-eslint",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "htmllinter plugin to lint script tags using eslint",
   "main": "dist/index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "@htmllinter/core": "^0.5.0",
+    "@htmllinter/core": "^0.5.1",
     "eslint": "^7.0.0"
   },
   "files": [

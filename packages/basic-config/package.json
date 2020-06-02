@@ -1,6 +1,6 @@
 {
   "name": "@htmllinter/basic-config",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "basic standard for htmllinter used for setting the standard the config",
   "main": "dist/index.js",
   "scripts": {
@@ -9,8 +9,8 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "@htmllinter/basic-rules": "^0.5.0",
-    "@htmllinter/core": "^0.5.0"
+    "@htmllinter/basic-rules": "^0.5.1",
+    "@htmllinter/core": "^0.5.1"
   },
   "files": [
     "dist"
