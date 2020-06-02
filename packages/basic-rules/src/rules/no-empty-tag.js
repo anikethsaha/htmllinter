@@ -12,18 +12,29 @@ export default {
           type: 'array',
           default: [],
         },
+        ignoreIfAttributes: {
+          type: 'boolean',
+          default: true,
+        },
       },
       additionalProperties: false,
     },
   },
   // eslint-disable-next-line no-unused-vars
   rule: function(options = {}, reporter = [], reportNode = []) {
-    const { ignore } = options;
+    const { ignore, ignoreIfAttributes } = options;
+    const ignoreIfAttr = ignoreIfAttributes === true;
+
     return (tree) =>
       tree.walk((node) => {
         if (node.location && typeof node.location.innerHTML === 'undefined') {
           return node;
         }
+
+        if (ignoreIfAttr && node.attrs && Object.keys(node.attrs).length > 0) {
+          return node;
+        }
+
         if (
           node.type === 'tag' &&
           !node.content &&
