@@ -20,7 +20,7 @@
     "evergreen-ui": "^4.23.0",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.2.2",
-    "prismjs": "^1.19.0",
+    "prismjs": "^1.24.0",
     "react": "^16.13.0",
     "react-codemirror": "^1.0.0",
     "react-container-dimensions": "^1.4.1",
